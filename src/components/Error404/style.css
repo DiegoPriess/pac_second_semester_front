@@ -1,0 +1,32 @@
+.errorPage div{
+    display: flex;
+    justify-content: space-around;
+}
+
+.errorPage h1{
+    color: #5445ff;;
+    font-size: 100px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.errorPage a{
+    all: unset;
+
+    padding: 10px;
+    font-size: 20px;
+
+    color: #5445ff;
+    font: bold;
+
+    border: 2px solid #5445ff;
+    border-radius: 20px;
+}
+
+.errorPage a{
+    transition: 0.3s;
+}
+
+.errorPage a:hover{
+    color: #e6e6e6;
+    background: #5445ff;
+}
