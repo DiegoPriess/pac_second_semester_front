@@ -11,6 +11,6 @@
 
 ## Rodar o projeto
 
-`npm start`
+> `npm start`
 
 ## Projeto em desenvolvimento ainda.
