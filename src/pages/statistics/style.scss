@@ -1,4 +1,4 @@
-.accounts{
+.statistics{
     display: flex;
     flex-wrap: wrap;
     height: 69vh;
@@ -6,7 +6,6 @@
     border-radius: 10px;
     background: #ffffff;
     overflow-y: auto;
-    box-shadow: 0 0 4px #c9c9c9;
 
     .accounts-icon{
         color: #9840e6;

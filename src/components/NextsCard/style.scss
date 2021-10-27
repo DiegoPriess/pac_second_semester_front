@@ -7,6 +7,7 @@
     border-radius: 10px;
     background: #ffffff;
     overflow-y: auto;
+    box-shadow: 0 0 4px #c9c9c9;
 
     .accounts-icon{
         color: #9840e6;
@@ -15,7 +16,8 @@
         border-radius: 50px;
         font-size: 50px;
         position: absolute;
-        margin-top: -20px;
-        margin-left: -20px;
+        margin-top: -30px;
+        margin-left: -30px;
+        border: 8px solid #f5f5f5;
     }
 }

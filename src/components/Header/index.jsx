@@ -20,7 +20,7 @@ const Header = () => {
             
             <div className="header-item">
                 <div className="logout-item">
-                    <ProfileThumbnail />
+                    <Link to="/perfil"><ProfileThumbnail /></Link>
                     <Link to="/"><i className="material-icons">logout</i></Link>
                 </div>
             </div>

@@ -7,6 +7,8 @@ import Header from './components/Header';
 import ProfileAbstractCard from './components/ProfileAbstractCard';
 import NextsCard from './components/NextsCard';
 import Accounts from './components/Accounts';
+import Statistics from './pages/statistics';
+import Profile from './pages/profile';
 
 function App() {
   
@@ -38,7 +40,7 @@ function App() {
               <Header />
               <div className="body">
                 <NavBar />
-                <Accounts accountList="pendant"/>
+                <Accounts accountType="pendant"/>
               </div>
             </div>   
           </Route>
@@ -48,17 +50,26 @@ function App() {
               <Header />
               <div className="body">
                 <NavBar />
-                <Accounts accountList="finish"/>
+                <Accounts accountType="finish"/>
               </div>
             </div>   
           </Route>
 
-          <Route path='/configuracao'>
+          <Route path='/estatisticas'>
             <div className="content">
               <Header />
               <div className="body">
                 <NavBar />
-              
+                <Statistics />
+              </div>
+            </div>   
+          </Route>
+
+          <Route path='/perfil'>
+            <div className="content">
+              <Header />
+              <div className="body">
+                <Profile />
               </div>
             </div>   
           </Route>

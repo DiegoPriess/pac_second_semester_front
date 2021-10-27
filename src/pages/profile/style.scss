@@ -1,0 +1,28 @@
+.profile{
+    display: flex;
+    border-radius: 10px;
+    width: 100vw;
+    height: 70vh;
+    margin: 0 4vw;
+    background: #ffffff;
+    box-shadow: 0 0 10px #c9c9c9;
+
+    .profile-image{
+        display: flex;
+        width: 50%;
+
+        img{
+           
+            width: 60%;
+            margin: 10%;
+            border-radius: 20px;
+        }
+
+        .edit{
+            position: absolute;
+            display: flex;
+            background-color: black;
+            z-index: 10;
+        }
+    }
+}

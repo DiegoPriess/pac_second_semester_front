@@ -29,7 +29,7 @@ const NextsCard = (props) => {
     
   return (
     <div className="nexts-cards">
-      <i className={`material-icons accounts-icon`}>{props.accountType === "negative" ? "money_off" : "attach_money "}</i>
+      <i className="material-icons accounts-icon">{props.accountType === "negative" ? "money_off" : "attach_money "}</i>
           {accountList.map( (account, index) => {
               return <AccountCard key={index} title={account.title} type={account.type} price={account.price} date={account.date} />
           })}

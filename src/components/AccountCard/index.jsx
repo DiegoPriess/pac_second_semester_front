@@ -10,7 +10,7 @@ const AccountCard = (props) => {
             <p className="price">{`R$${props.price}`}</p>
             <p className="date">{props.date}</p>
             <div className="actions">
-                <i className="material-icons done">done</i>
+                {!props.isDone ? <i className="material-icons done">done</i> : ""}
                 <i className="material-icons close">close</i>
                 <i className="material-icons edit">edit</i>
             </div>
