@@ -1,0 +1,28 @@
+.search-input{
+    display: flex;
+    height: 30px;
+    border: 2px solid #ababab;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 0;
+
+    input{
+        width: 95%;
+    }
+
+    i{
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-size: 30px;
+    }
+}
+
+.search-input:focus-within{
+    border-color: #ad67eb;
+}
+
+.search-input{
+    transition: 0.3s;
+}

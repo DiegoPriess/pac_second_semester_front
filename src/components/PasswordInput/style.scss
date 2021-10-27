@@ -1,0 +1,29 @@
+.password-input{
+    display: flex;
+    height: 30px;
+    border: 2px solid #ababab;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2em;
+    margin: 10px 0;
+
+    input{
+        width: 95%;
+    }
+
+    i{
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-size: 30px;
+    }
+}
+
+.password-input:focus-within{
+    border-color: #ad67eb;
+}
+
+.password-input{
+    transition: 0.3s;
+}

@@ -1,0 +1,21 @@
+.nexts-cards{
+    display: flex;
+    flex-direction: column;
+    height: 32vh;
+    width: 100%;
+    margin-bottom: 5vh;
+    border-radius: 10px;
+    background: #ffffff;
+    overflow-y: auto;
+
+    .accounts-icon{
+        color: #9840e6;
+        background: #ffffff;
+        padding: 10px;
+        border-radius: 50px;
+        font-size: 50px;
+        position: absolute;
+        margin-top: -20px;
+        margin-left: -20px;
+    }
+}

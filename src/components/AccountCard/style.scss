@@ -1,0 +1,84 @@
+.account-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #a1a1a1;
+    width: 90%;
+    height: 60px;
+    margin: 2% 1% 0 3%;
+    padding: 20px;
+
+    &:hover{
+        transform: scale(1.03);
+    }
+        
+    .card-title{
+        display: inline-block;
+        color: #333333;
+
+        font-size: 1.5em;
+        
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .price{
+        display: inline-block;
+    }
+
+    .date{
+        display: inline-block;
+    }
+
+    .positive{
+        color: #00c96b;
+    }
+
+    .negative{
+        color: #c90000;
+    }
+    
+    p{
+        font-size: 1.2em;
+        margin: 15px 0;
+    }
+
+    i{
+        font-size: 1.8em;
+        margin: 0 6px;
+        cursor: pointer;
+    }
+
+    .actions{
+        i{
+            &:hover{
+                transform: scale(1.2);
+            }
+        }
+    
+        .done, .close, .edit {
+            color: #666666;
+        }
+    
+        .done:hover{
+            color: #00c96b; 
+        }
+    
+        .close:hover{
+            color: #c90000;
+        }
+    
+        .edit:hover{
+            color: #c98300;
+        }
+    }
+
+    i{
+        transition: .3s;
+    }
+}   
+
+.account-card{
+    transition: .3s;
+}
