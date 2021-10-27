@@ -2,13 +2,15 @@
 
 ## Para clonar o repositorio 
 
-> git clone https://github.com/DiegoPriess/geld-app.git
+> `git clone https://github.com/DiegoPriess/geld-app.git`
 
 
 ## Instalar as dependencias 
 
-> npm install
+> `npm install`
 
 ## Rodar o projeto
 
 `npm start`
+
+## Projeto em desenvolvimento ainda.
