@@ -1,5 +1,5 @@
 import './style.scss'
-import Button from '../Button';
+import Button from '../../components/Button';
 import img from '../../assets/imgs/404.png';
 
 const Error404 = () => {

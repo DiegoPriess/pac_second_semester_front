@@ -1,4 +1,4 @@
-.login{
+.authentication{
     display: flex;
     color: #696969;
 
@@ -35,7 +35,7 @@
         }
     }
 
-    .login-content{
+    .authentication-content{
         display: flex;
         width: 50%;
         height: 100vh;
@@ -61,13 +61,6 @@
 
             .button {
                 width: 100%;
-            }
-            
-            .register-button{
-                background: none !important;
-                border: none !important;
-                padding: 0 !important;
-                color:#ad67eb !important;
             }
 
             .button-space{

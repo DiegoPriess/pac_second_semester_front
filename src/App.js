@@ -1,7 +1,7 @@
 import './app.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Error404 from "./components/Error404";
-import Login from './pages/Login';
+import Error404 from "./pages/Error404";
+import Authentication from './pages/Authentication';
 import NavBar from './components/NavBar';
 import Header from './components/Header';
 import ProfileAbstractCard from './components/ProfileAbstractCard';
@@ -18,7 +18,11 @@ function App() {
         
         <Switch>
           <Route exact path='/'>
-            <Login />
+            <Authentication action="login"/>
+          </Route>
+
+          <Route exact path='/register'>
+            <Authentication action="register"/>
           </Route>
 
           <Route exact path='/menu'>

@@ -10,7 +10,7 @@ const InputGroup = (props) => {
                 {props.icon ? <i className="material-icons">{ props.icon }</i> : "" } 
                 <span>{props.labelText}</span>
             </label>
-            { props.inputType === "password" ? <PasswordInput /> : <Input inputType={props.inputType}/>}
+            { props.inputType === "password" ? <PasswordInput id={props.id}/> : <Input inputType={props.inputType}/>}
         </div>
     );
 }
