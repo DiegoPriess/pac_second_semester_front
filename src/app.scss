@@ -85,4 +85,17 @@ nav{
 	.nexts-cards-container{
 		width: 50%;
 	}
+
+	.accounts-icon{
+        color: #9840e6;
+        background: #ffffff;
+        padding: 10px;
+        border-radius: 50px;
+        font-size: 50px;
+        position: absolute;
+        margin-top: -45px;
+        margin-left: -45px;
+        border: 8px solid #f5f5f5;
+        z-index: 1;
+    }
 }
