@@ -10,6 +10,7 @@ import Accounts from './components/Accounts';
 import Statistics from './pages/statistics';
 import Profile from './pages/profile';
 import CreateAccounts from './pages/CreateAccounts';
+import CustomAlert from './components/CustomAlert';
 
 function App() {
   
@@ -62,6 +63,7 @@ function App() {
 
           <Route path='/criarcontas'>
             <div className="content">
+              {/* <CustomAlert type="negative"/> */}
               <Header />
               <div className="body">
                 <NavBar />
