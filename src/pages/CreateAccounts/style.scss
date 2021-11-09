@@ -11,11 +11,15 @@
     form{
         display: flex;
         justify-content: space-around;
+        text-align: center;
         width: 100%;
-        padding: 10%;
 
         .data{
-            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 50%;
+            padding: 0 5%;
 
             .input-container{
                 display: flex;
@@ -49,37 +53,43 @@
                 }
     
                 .account-type-input{
-                    transition: 0.2s all linear;
+                    transition: 0.25s all linear;
                 }
             } 
         }
         
-        button{
-            all: unset;
+        .submit-container{
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 24%;
-            margin: 14%;
-            height: 20%;
-            border-radius: 10px;
+            width: 60%;
 
-            font-size: 34px;
-            color: #9840e6;
-
-            i{
-                font-size: 40px;
-            }
-
-            &:hover{
-                background-color: #9840e6;
-                color: #FFFFFF;
+            button{
+                all: unset;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 
+                border-radius: 10px;
+    
+                font-size: 150%;
+                color: #9840e6;
+                padding: 10px;
+    
+                i{
+                    font-size: 40px;
+                }
+    
+                &:hover{
+                    background-color: #9840e6;
+                    color: #FFFFFF;
+                    
+                }
             }
-        }
-
-        button{
-            transition: 0.3s;
+    
+            button{
+                transition: 0.3s;
+            }
         }
     }
 }
