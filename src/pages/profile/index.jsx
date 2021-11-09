@@ -7,7 +7,7 @@ const Profile = () => {
         <div className="profile">
             <div className="profile-image">
                 <img src={profileImage} alt="" />
-                <div class="edit"></div>
+                <div className="edit"></div>
             </div>
         </div>
     );

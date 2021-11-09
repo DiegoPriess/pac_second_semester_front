@@ -9,6 +9,7 @@ import NextsCard from './components/NextsCard';
 import Accounts from './components/Accounts';
 import Statistics from './pages/statistics';
 import Profile from './pages/profile';
+import CreateAccounts from './pages/CreateAccounts';
 
 function App() {
   
@@ -55,6 +56,16 @@ function App() {
               <div className="body">
                 <NavBar />
                 <Accounts accountType="finish"/>
+              </div>
+            </div>   
+          </Route>
+
+          <Route path='/criarcontas'>
+            <div className="content">
+              <Header />
+              <div className="body">
+                <NavBar />
+                <CreateAccounts />
               </div>
             </div>   
           </Route>

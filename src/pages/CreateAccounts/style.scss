@@ -1,0 +1,85 @@
+.create-accounts{
+    display: flex;
+    flex-wrap: wrap;
+    height: 69vh;
+    width: 73.5%;
+    border-radius: 10px;
+    background: #ffffff;
+    overflow-y: auto;
+    box-shadow: 0 0 4px #c9c9c9;
+    
+    form{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10%;
+
+        .data{
+            width: 40%;
+
+            .input-container{
+                display: flex;
+                align-items: center;
+                height: 40px;
+    
+                i{
+                    margin-right: 10px;
+                }
+    
+                .account-type-input{
+                
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    
+                    border-radius: 5px;
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid #999;
+                
+                    &:checked {
+                        border-color: #9840e6;
+                        border-radius: 0;
+                        border-top: none;
+                        border-left: none;
+                        margin: 0 5px;
+                        width: 10px;
+                        transform: rotate(40deg);
+                    }
+                }
+    
+                .account-type-input{
+                    transition: 0.2s all linear;
+                }
+            } 
+        }
+        
+        button{
+            all: unset;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 24%;
+            margin: 14%;
+            height: 20%;
+            border-radius: 10px;
+
+            font-size: 34px;
+            color: #9840e6;
+
+            i{
+                font-size: 40px;
+            }
+
+            &:hover{
+                background-color: #9840e6;
+                color: #FFFFFF;
+                
+            }
+        }
+
+        button{
+            transition: 0.3s;
+        }
+    }
+}
