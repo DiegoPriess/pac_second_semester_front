@@ -45,14 +45,24 @@
         form{
             display: flex;
             width: 50%;
-            flex-direction: column;
-            justify-content: center;
-
+            flex-wrap: wrap;
+            justify-content: space-between;
             font-weight: bold;
-            
+
+            .input-group{
+                width: 100%;
+            }            
 
             h1{
                 font-size: 2.5em;
+            }
+
+            .actions-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
             }
 
             .input-group{
