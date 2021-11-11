@@ -2,8 +2,11 @@ import React from 'react';
 import './style.scss';
 
 const Input = (props) => {
+    // Construir função para alterar label ao inserir algum arquivo
     return (
-        <input className="input" id={props.id} type={props.inputType} />
+        <>
+            {props.inputType === 'file' ? <><label for={props.id} className="label-file"><i className="material-icons">description</i>Clique aqui e selecione uma foto</label><input id={props.id} type="file"/></>: <input className="input" id={props.id} type={props.inputType} />}
+        </>
     );
 }
 
