@@ -23,10 +23,12 @@ const CreateAccounts = () => {
                         </div>
                     </div>
                 </div>
-                <button>
-                    <i className="material-icons">add</i>
-                    Enviar conta
-                </button>
+                <div class="submit-container">
+                    <button>
+                        <i className="material-icons">add</i>
+                        <p>Enviar conta</p>
+                    </button>
+                </div>
             </form>
         </div>
     );

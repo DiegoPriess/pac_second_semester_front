@@ -14,3 +14,25 @@
 .input:focus{
     border-color: #ad67eb;
 }
+
+input[type="file"]{
+    display: none;
+}
+
+.label-file{
+    display: flex;
+    word-wrap: break-word;
+    text-align: center;
+    align-items: center;
+    padding: 5px;
+    width: 85%;
+    height: 3vh;
+    border: 2px solid #ababab;
+    background: #ababab;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.7em;
+    margin: 10px 0;
+    color: #ffffff;
+    cursor: pointer;
+}
