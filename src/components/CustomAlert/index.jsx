@@ -1,8 +1,10 @@
 import React from 'react';
 import './style.scss';
-import { Link } from 'react-router-dom';
 
 const CustomAlert = (props) => {
+    const closeAlert = () => {
+        document.querySelector(".alert").style.display = "none";
+    }
 
     return (
         <div className="alert">
@@ -11,7 +13,7 @@ const CustomAlert = (props) => {
                     <i className="material-icons"></i><i className={`${props.type} material-icons`}>{props.type === "negative" ? "cancel" : "check_circle"}</i>
                     <label>conta criada tats sa asaas </label>
                 </div>
-                <Link to="/menu"><button>Ok</button></Link>
+                <button onClick={closeAlert}>Ok</button>
             </div>
         </div>
     );
