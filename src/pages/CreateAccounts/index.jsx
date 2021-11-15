@@ -7,7 +7,7 @@ const CreateAccounts = () => {
         <div className="create-accounts">
             <i className="material-icons accounts-icon">add</i>
             <form>
-                <div class="data">
+                <div className="data">
                     <InputGroup id="account-name" labelText="Nome:"/>
                     <InputGroup id="account-price" inputType="number" labelText="Preço:"/>
                     <InputGroup id="account-price" inputType="date" labelText="Data:"/>
@@ -23,7 +23,7 @@ const CreateAccounts = () => {
                         </div>
                     </div>
                 </div>
-                <div class="submit-container">
+                <div className="submit-container">
                     <button>
                         <i className="material-icons">add</i>
                         <p>Enviar conta</p>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Register = () => {
     return (
-        <form action="" class="authentication-register">
+        <form action="" className="authentication-register">
             <InputGroup icon="account_circle" labelText="Usuário" inputType="text"/>
             <InputGroup icon="email" labelText="E-mail" inputType="email"/>
             <InputGroup icon="lock" id="password" labelText="Senha" inputType="password"/>
