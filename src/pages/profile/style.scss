@@ -1,5 +1,7 @@
 .profile{
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     border-radius: 10px;
     width: 100vw;
     height: 70vh;
@@ -7,22 +9,45 @@
     background: #ffffff;
     box-shadow: 0 0 10px #c9c9c9;
 
+    label{
+        width: 30%;
+    }
+
     .profile-image{
         display: flex;
-        width: 50%;
+        width: 100%;
 
         img{
-           
-            width: 60%;
-            margin: 10%;
+            width: 100%;
             border-radius: 20px;
         }
 
-        .edit{
-            position: absolute;
-            display: flex;
-            background-color: black;
-            z-index: 10;
+        span{
+            display: none;
         }
+    }
+
+    .profile-image:hover{
+        filter: brightness(50%);
+
+        span{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: #ffffff;
+            filter: brightness(100%);
+            font-size: 1.5em;
+        }
+    }
+
+    .profile-data{
+        width: 25%;
+    }
+
+    input:focus{
+        border-color: #ababab;
     }
 }
