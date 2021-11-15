@@ -18,7 +18,7 @@ const Accounts = (props) => {
             {title: "Conta9", type: "positive", description: "teste", price: "700.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
         ];
     }else{
-        accountList = [{title: "Conta1111111111111111111", type: "positive", description: "teeeeeeeeeeeeeeeeeeeeeeeeeeeeste", price: "400.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
+        accountList = [{title: "Conta111111111122222222222222222222222222111111111", type: "positive", description: "teeeeeeeeeeeeeeeeeeeeeeeeeeeeste", price: "400.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
             {title: "Conta2", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
             {title: "Conta3", type: "negative", description: "teste", price: "450.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
             {title: "Conta4", type: "positive", description: "teste", price: "225.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},

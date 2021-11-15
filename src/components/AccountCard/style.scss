@@ -57,7 +57,7 @@
 
     .actions{
         width: 15%;
-        text-align: center;
+        text-align: ce;
 
         i{
             &:hover{
@@ -86,9 +86,19 @@
         transition: .3s;
     }
 
-    p, i{
+    p, i, .right{
         width: 15%;
         text-align: center;
+    }
+    
+    .tooltip{
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+
+        p{
+            width: 100%;
+        }
     }
 }   
 
