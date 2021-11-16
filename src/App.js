@@ -36,7 +36,6 @@ function App() {
                   <NextsCard accountType="positive"/>
                   <NextsCard accountType="negative"/>
                 </div>
-                <ProfileAbstractCard />
               </div>
             </div>
           </Route>

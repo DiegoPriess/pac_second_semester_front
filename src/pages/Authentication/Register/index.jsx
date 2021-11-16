@@ -11,7 +11,6 @@ const Register = () => {
             <InputGroup icon="email" labelText="E-mail" inputType="email"/>
             <InputGroup icon="lock" id="password" labelText="Senha" inputType="password"/>
             <InputGroup icon="lock" id="confirm-password" labelText="Confirmar Senha" inputType="password"/>
-            <InputGroup icon="attach_money" labelText="Saldo Inicial" inputType="number"/>
             <InputGroup id="profile-image" labelText="Foto de perfil" inputType="file" />
             <div className="actions-container">
                 <Button textButton="Cadastrar-se"/>
