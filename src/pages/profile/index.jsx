@@ -1,10 +1,8 @@
 import React from 'react';
 import './style.scss';
 import profileImage from '../../assets/imgs/profileExample.jpg';
-import Button from '../../components/Button';
 import InputGroup from '../../components/InputGroup';
 import './style.scss';
-import { Link } from 'react-router-dom';
 
 const Profile = () => {
     return (

@@ -63,7 +63,6 @@ function App() {
 
           <Route path='/criarcontas'>
             <div className="content">
-              <CustomAlert type="negative"/>
               <Header />
               <div className="body">
                 <NavBar />
