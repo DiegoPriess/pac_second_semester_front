@@ -16,7 +16,7 @@ const PasswordInput = (props) => {
 
     return (
         <div className="password-input">
-            <input id={props.id} type={inputType}/>
+            <input id={props.id} value={props.inputValue} onChange={props.onChangeFunction} type={inputType}/>
             <i id={props.id + "-icon"} className="material-icons" onClick={toggleVisibility}>visibility_off</i>
         </div>
     );

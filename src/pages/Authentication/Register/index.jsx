@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../../../components/Button';
 import InputGroup from '../../../components/InputGroup';
 import './style.scss';
@@ -8,19 +8,29 @@ import ReactDOM from 'react-dom';
 
 const Register = () => {
 
-
-    const registerUser = event => {
-        event.preventDefault();
-        if(document.getElementById("register-password").value !== document.getElementById("register-confirm-password").value){
-            alert("Ops! Os campos de senhas devem estar iguais");
-        
-        }else{
-            const data = {
-                "email": document.getElementById("register-email").value,
-                "nome": document.getElementById("register-name").value,
-                "senha": document.getElementById("register-password").value
-            };
+    const [registerUser, setRegisterUser] = useState("");
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
+    const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
     
+    const onRegisterUser = event => {
+        
+        if(registerUser === "" || registerEmail === "" || registerPassword === "" || registerConfirmPassword === "")
+        {
+            alert("Ops! Todos os campos precisam ser preenchidos")
+        }
+        else if(registerPassword !== registerConfirmPassword)
+        {    
+            alert("Ops! Os campos de senha devem ter o mesmo valor");
+        }
+        else
+        {
+            const data = {
+                "email": registerEmail,
+                "nome": registerUser,
+                "senha": registerPassword
+            };
+
             fetch("http://localhost:8080/api/usuarios", {
             method: "POST",
             headers: {
@@ -36,16 +46,23 @@ const Register = () => {
             });
         }
     }
-    
 
     return (
         <form className="authentication-register">
-            <InputGroup icon="account_circle" id="register-name" labelText="Usuário" inputType="text"/>
-            <InputGroup icon="email" id="register-email" labelText="E-mail" inputType="email"/>
-            <InputGroup icon="lock" id="register-password" labelText="Senha" inputType="password"/>
-            <InputGroup icon="lock" id="register-confirm-password" labelText="Confirmar Senha" inputType="password"/>
+            <InputGroup icon="account_circle" id="register-name" labelText="Usuário" inputType="text"
+                inputValue={registerUser} onChangeFunction={event => { setRegisterUser(event.target.value) }} />
+
+            <InputGroup icon="email" id="register-email" labelText="E-mail" inputType="email"
+                inputValue={registerEmail} onChangeFunction={event => { setRegisterEmail(event.target.value) }} />
+
+            <InputGroup icon="lock" id="register-password" labelText="Senha" inputType="password"
+                inputValue={registerPassword} onChangeFunction={event => { setRegisterPassword(event.target.value) }} />
+
+            <InputGroup icon="lock" id="register-confirm-password" labelText="Confirmar Senha" inputType="password"
+                inputValue={registerConfirmPassword} onChangeFunction={event => { setRegisterConfirmPassword(event.target.value) }} />
+
             <div className="actions-container">
-                <Button onClickFunction={registerUser} textButton="Cadastrar-se"/>
+                <Button onClickFunction={onRegisterUser} textButton="Cadastrar-se"/>
                 <span className="button-space">Ou</span>
                 <Link to={"/"}><Button customClass="register-button" textButton="Voltar para tela de login"/></Link>
             </div>
