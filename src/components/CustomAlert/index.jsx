@@ -11,7 +11,7 @@ const CustomAlert = (props) => {
             <div className="alert-content">
                 <div className="alert-text">
                     <i className="material-icons"></i><i className={`${props.type} material-icons`}>{props.type === "negative" ? "cancel" : "check_circle"}</i>
-                    <label>conta criada tats sa asaas </label>
+                    <label>{props.labelText}</label>
                 </div>
                 <button onClick={closeAlert}>Ok</button>
             </div>
