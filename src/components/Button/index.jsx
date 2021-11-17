@@ -3,7 +3,7 @@ import './style.scss';
 
 const Button = (props) => {
     return (
-        <button className={`${props.customClass} button`}>{ props.textButton }</button>
+        <button onClick={props.onClickFunction} className={`${props.customClass} button`}>{ props.textButton }</button>
     );
 }
 

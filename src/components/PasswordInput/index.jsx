@@ -7,17 +7,17 @@ const PasswordInput = (props) => {
     const toggleVisibility = () => {
         if(inputType === "password"){
             setInputType("text");
-            document.getElementById(props.id).innerText = "visibility"
+            document.getElementById(props.id + "-icon").innerText = "visibility"
         }else{
             setInputType("password");
-            document.getElementById(props.id).innerText = "visibility_off"
+            document.getElementById(props.id + "-icon").innerText = "visibility_off"
         }
     }
 
     return (
         <div className="password-input">
-            <input type={inputType}/>
-            <i id={props.id} className="material-icons" onClick={toggleVisibility}>visibility_off</i>
+            <input id={props.id} type={inputType}/>
+            <i id={props.id + "-icon"} className="material-icons" onClick={toggleVisibility}>visibility_off</i>
         </div>
     );
 }
