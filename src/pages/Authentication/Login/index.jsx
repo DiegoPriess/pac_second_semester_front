@@ -19,7 +19,8 @@ const Login = () => {
 
         if(loginEmail === "" || loginSenha === "")
         {
-            alert("Ops! Todos os campos precisam ser preenchidos")
+            alert = <CustomAlert urlPath="/" labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />;
+            ReactDOM.render(alert, document.getElementById('root'));
         }
         else
         {

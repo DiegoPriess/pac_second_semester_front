@@ -21,11 +21,13 @@ const Register = () => {
 
         if(registerUser === "" || registerEmail === "" || registerPassword === "" || registerConfirmPassword === "")
         {
-            alert("Ops! Todos os campos precisam ser preenchidos")
+            alert = <CustomAlert urlPath="/register" labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />;
+            ReactDOM.render(alert, document.getElementById('root'));
         }
         else if(registerPassword !== registerConfirmPassword)
         {    
-            alert("Ops! Os campos de senha devem ter o mesmo valor");
+            alert = <CustomAlert urlPath="/register" labelText="Ops! Os campos de senha devem ter o mesmo valor." type="negative" />;
+            ReactDOM.render(alert, document.getElementById('root'));
         }
         else
         {
