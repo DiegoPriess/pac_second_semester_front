@@ -2,10 +2,6 @@ import React from 'react';
 import './style.scss';
 
 const CustomAlert = (props) => {
-    const closeAlert = () => {
-        document.querySelector(".alert").style.display = "none";
-    }
-
     return (
         <div className="alert">
             <div className="alert-content">
@@ -13,7 +9,7 @@ const CustomAlert = (props) => {
                     <i className="material-icons"></i><i className={`${props.type} material-icons`}>{props.type === "negative" ? "cancel" : "check_circle"}</i>
                     <label>{props.labelText}</label>
                 </div>
-                <button onClick={closeAlert}>Ok</button>
+                <button onClick={() => {window.location.pathname = props.urlPath}}>Ok</button>
             </div>
         </div>
     );

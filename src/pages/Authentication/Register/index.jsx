@@ -12,9 +12,13 @@ const Register = () => {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
+
+    let alert;
     
     const onRegisterUser = event => {
         
+        event.preventDefault();
+
         if(registerUser === "" || registerEmail === "" || registerPassword === "" || registerConfirmPassword === "")
         {
             alert("Ops! Todos os campos precisam ser preenchidos")
@@ -39,10 +43,16 @@ const Register = () => {
             body: JSON.stringify(data),
             })
             .then((data) => {
-                return <CustomAlert type="positive" />;
+                if(data.ok){
+                    alert = <CustomAlert urlPath="/" labelText="Usuário cadastrado com sucesso." type="positive" />;
+                }else{
+                    alert = <CustomAlert urlPath="/register" labelText="Erro ao cadastrar usuário." type="negative" />;
+                }
             })
             .catch((error) => {
-                return <CustomAlert type="negative" />;
+                console.log("Erro");
+            }).finally(() => {
+                ReactDOM.render(alert, document.getElementById('root'));
             });
         }
     }
