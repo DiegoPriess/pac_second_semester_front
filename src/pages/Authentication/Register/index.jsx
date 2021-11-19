@@ -12,6 +12,8 @@ const Register = () => {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
+    const PATH_SUCCESS = "/";
+    const PATH_ERROR   = "/register";
 
     let alert;
     
@@ -21,13 +23,11 @@ const Register = () => {
 
         if(registerUser === "" || registerEmail === "" || registerPassword === "" || registerConfirmPassword === "")
         {
-            alert = <CustomAlert urlPath="/register" labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />;
-            ReactDOM.render(alert, document.getElementById('root'));
+            alert = <CustomAlert urlPath={PATH_ERROR} labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />;
         }
         else if(registerPassword !== registerConfirmPassword)
         {    
-            alert = <CustomAlert urlPath="/register" labelText="Ops! Os campos de senha devem ter o mesmo valor." type="negative" />;
-            ReactDOM.render(alert, document.getElementById('root'));
+            alert = <CustomAlert urlPath={PATH_ERROR} labelText="Ops! Os campos de senha devem ter o mesmo valor." type="negative" />;
         }
         else
         {
@@ -36,9 +36,6 @@ const Register = () => {
                 "nome": registerUser,
                 "senha": registerPassword
             };
-
-            const pathSuccess = "/";
-            const pathError   = "/register";
 
             fetch("http://localhost:8080/api/usuarios", {
             method: "POST",
@@ -49,16 +46,18 @@ const Register = () => {
             })
             .then((data) => {
                 if(data.ok){
-                    alert = <CustomAlert urlPath={pathSuccess} labelText="Usuário cadastrado com sucesso." type="positive" />;
+                    alert = <CustomAlert urlPath={PATH_SUCCESS} labelText="Usuário cadastrado com sucesso." type="positive" />;
                 }else{
-                    alert = <CustomAlert urlPath={pathError} labelText="Erro ao cadastrar usuário." type="negative" />;
+                    alert = <CustomAlert urlPath={PATH_ERROR} labelText="Erro ao cadastrar usuário." type="negative" />;
                 }
             })
             .catch((error) => {
-                alert = <CustomAlert urlPath={pathError} labelText={error} type="negative" />;
-            }).finally(() => {
-                ReactDOM.render(alert, document.getElementById('root'));
+                alert = <CustomAlert urlPath={PATH_ERROR} labelText={error} type="negative" />;
             });
+        }
+
+        if(alert){
+            ReactDOM.render(alert, document.getElementById('root'));
         }
     }
 

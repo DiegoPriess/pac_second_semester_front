@@ -10,6 +10,8 @@ const Login = () => {
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginSenha, setLoginSenha] = useState("");
+    const PATH_SUCCESS = "/menu";
+    const PATH_ERROR   = "/";
 
     let alert;
     
@@ -19,8 +21,7 @@ const Login = () => {
 
         if(loginEmail === "" || loginSenha === "")
         {
-            alert = <CustomAlert urlPath="/" labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />;
-            ReactDOM.render(alert, document.getElementById('root'));
+            alert = <CustomAlert urlPath={PATH_ERROR} labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />;
         }
         else
         {
@@ -28,9 +29,6 @@ const Login = () => {
                 "email": loginEmail,
                 "senha": loginSenha
             };
-
-            const pathSuccess = "/menu";
-            const pathError   = "/";
 
             fetch("http://localhost:8080/api/usuarios/autenticar", {
             method: "POST",
@@ -41,16 +39,18 @@ const Login = () => {
             })
             .then((data) => {
                 if(data.ok){
-                    window.location.pathname = pathSuccess;
+                    window.location.pathname = PATH_SUCCESS;
                 }else{
-                    alert = <CustomAlert urlPath={pathError} labelText="Email ou senha incorreta." type="negative" />;
+                    alert = <CustomAlert urlPath={PATH_ERROR} labelText="Email ou senha incorreta." type="negative" />;
                 }
             })
             .catch((error) => {
-                alert = <CustomAlert urlPath={pathError} labelText={error} type="negative" />;
-            }).finally(() => {
-                ReactDOM.render(alert, document.getElementById('root'));
+                alert = <CustomAlert urlPath={PATH_ERROR} labelText={error} type="negative" />;
             });
+        }
+
+        if(alert){
+            ReactDOM.render(alert, document.getElementById('root'));
         }
     }
 

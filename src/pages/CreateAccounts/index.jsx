@@ -11,15 +11,15 @@ const CreateAccounts = () => {
     const [createAccountDate, setCreateAccountDate] = useState("");
     const [createAccountDescription, setCreateAccountDescription] = useState("");
     const [createAccountType, setCreateAccountType] = useState(false);
+    const PATH = "/criarcontas";
 
     const onCreateAccount = () => {
 
         let alert;
-        const path = "/criarcontas";
         
         if(createAccountPrice === "" || createAccountDate === "" || createAccountDescription === "")
         {
-            alert = <CustomAlert urlPath={path} labelText="Ops! Todos os campos precisam ser preenchidos" type="negative" />;
+            alert = <CustomAlert urlPath={PATH} labelText="Ops! Todos os campos precisam ser preenchidos" type="negative" />;
         }
         else
         {
@@ -42,17 +42,17 @@ const CreateAccounts = () => {
             })
             .then((data) => {
                 if(data.ok){
-                    alert = <CustomAlert urlPath={path} labelText="Conta criada com sucesso." type="positive" />;
+                    alert = <CustomAlert urlPath={PATH} labelText="Conta criada com sucesso." type="positive" />;
                 }else{
-                    alert = <CustomAlert urlPath={path} labelText="Erro ao criar conta." type="negative" />;
+                    alert = <CustomAlert urlPath={PATH} labelText="Erro ao criar conta." type="negative" />;
                 }
             })
             .catch((error) => {
-                alert = <CustomAlert urlPath={path} labelText={error} type="negative" />;
-            }).finally(() => {
-                ReactDOM.render(alert, document.getElementById('root'));
+                alert = <CustomAlert urlPath={PATH} labelText={error} type="negative" />;
             });
         }
+
+        ReactDOM.render(alert, document.getElementById('root'));
     }
 
     return (
