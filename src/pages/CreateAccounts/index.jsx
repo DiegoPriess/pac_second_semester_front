@@ -14,6 +14,7 @@ const CreateAccounts = () => {
 
     const onCreateAccount = () => {
 
+        let alert;
         const path = "/criarcontas";
         
         if(createAccountPrice === "" || createAccountDate === "" || createAccountDescription === "")
