@@ -37,6 +37,9 @@ const Register = () => {
                 "senha": registerPassword
             };
 
+            const pathSuccess = "/";
+            const pathError   = "/register";
+
             fetch("http://localhost:8080/api/usuarios", {
             method: "POST",
             headers: {
@@ -46,13 +49,13 @@ const Register = () => {
             })
             .then((data) => {
                 if(data.ok){
-                    alert = <CustomAlert urlPath="/" labelText="Usuário cadastrado com sucesso." type="positive" />;
+                    alert = <CustomAlert urlPath={pathSuccess} labelText="Usuário cadastrado com sucesso." type="positive" />;
                 }else{
-                    alert = <CustomAlert urlPath="/register" labelText="Erro ao cadastrar usuário." type="negative" />;
+                    alert = <CustomAlert urlPath={pathError} labelText="Erro ao cadastrar usuário." type="negative" />;
                 }
             })
             .catch((error) => {
-                console.log("Erro");
+                alert = <CustomAlert urlPath={pathError} labelText={error} type="negative" />;
             }).finally(() => {
                 ReactDOM.render(alert, document.getElementById('root'));
             });

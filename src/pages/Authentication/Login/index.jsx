@@ -29,6 +29,9 @@ const Login = () => {
                 "senha": loginSenha
             };
 
+            const pathSuccess = "/menu";
+            const pathError   = "/";
+
             fetch("http://localhost:8080/api/usuarios/autenticar", {
             method: "POST",
             headers: {
@@ -38,13 +41,13 @@ const Login = () => {
             })
             .then((data) => {
                 if(data.ok){
-                    window.location.pathname = "/menu";
+                    window.location.pathname = pathSuccess;
                 }else{
-                    alert = <CustomAlert urlPath="/" labelText="Email ou senha incorreta." type="negative" />;
+                    alert = <CustomAlert urlPath={pathError} labelText="Email ou senha incorreta." type="negative" />;
                 }
             })
             .catch((error) => {
-                console.log("Erro");
+                alert = <CustomAlert urlPath={pathError} labelText={error} type="negative" />;
             }).finally(() => {
                 ReactDOM.render(alert, document.getElementById('root'));
             });
