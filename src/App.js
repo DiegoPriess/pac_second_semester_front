@@ -4,13 +4,11 @@ import Error404 from "./pages/Error404";
 import Authentication from './pages/Authentication';
 import NavBar from './components/NavBar';
 import Header from './components/Header';
-import ProfileAbstractCard from './components/ProfileAbstractCard';
 import NextsCard from './components/NextsCard';
 import Accounts from './components/Accounts';
 import Statistics from './pages/statistics';
 import Profile from './pages/profile';
 import CreateAccounts from './pages/CreateAccounts';
-import CustomAlert from './components/CustomAlert';
 
 function App() {
   

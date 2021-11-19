@@ -8,7 +8,7 @@ const Error404 = () => {
             <div className="errorPage-content">
                 <h1 className="main-text">Ops! Parece que essa página não existe</h1>
                 <div className="button-container">
-                    <Button textButton="Voltar para a tela inicial" />
+                    <Button onClickFunction={() => { window.location.pathname = "/"}} textButton="Voltar para a tela inicial" />
                 </div>
             </div>
             <img src={img} alt="" />
