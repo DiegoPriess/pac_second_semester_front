@@ -5,20 +5,9 @@ const AccountCard = (props) => {
 
     return (
         <div className="account-card">
-            <div className="right">
-                <div className="tooltip">
-                    <p className="card-title">{props.title}</p>
-                    <span className="tooltiptext">{props.title}</span>
-                </div>
-            </div>
+            <p className="card-description">{props.description}</p>   
             <i className={`${props.type} material-icons`}>{props.type === "negative" ? "money_off" : "attach_money "}</i>
             <p className="price">{`R$${props.price}`}</p>
-            <div className="left">
-                <div className="tooltip">
-                    <p className="description">{props.description}</p>
-                    <span className="tooltiptext">{props.description}</span>
-                </div>
-            </div>
             <p className="date">{props.date}</p>
             <div className="actions">
                 {!props.isDone ? <i className="material-icons done">done</i> : ""}

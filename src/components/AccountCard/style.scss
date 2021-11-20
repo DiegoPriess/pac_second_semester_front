@@ -82,23 +82,13 @@
         }
     }
 
-    i{
-        transition: .3s;
-    }
-
-    p, i, .right, .left{
+    p, i{
         width: 15%;
         text-align: center;
     }
-    
-    .tooltip{
-        width: 100%;
-        text-align: center;
-        padding: 10px;
 
-        p{
-            width: 100%;
-        }
+    i{
+        transition: .3s;
     }
 }   
 
