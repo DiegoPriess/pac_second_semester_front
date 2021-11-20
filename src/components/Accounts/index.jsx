@@ -32,9 +32,9 @@ const Accounts = (props) => {
 
     return (
         <div className="accounts">
-            <i className="material-icons accounts-icon">{ props.accountType === "finish" ? "done" : "schedule" }</i>
+            <i className="material-icons accounts-icon">{ props.status === "finish" ? "done" : "schedule"  /*account.accountType === "EFETIVADO"*/}</i>
             {accountList.map( (account, index) => {
-                return <AccountCard key={index} title={account.title} type={account.type} price={account.price} description={account.description} date={account.date} isDone={props.accountType === "finish"} />
+                return <AccountCard key={index /*account.id*/} type={account.type /*account.tipo*/} price={account.price/*account.valor*/} description={account.description/*account.descricao*/} date={account.date /*`${account.mes}/${account.ano}`*/} isDone={props.status === "finish" /*account.accountType === "EFETIVADO"*/} />
             })}
         </div>
     );
