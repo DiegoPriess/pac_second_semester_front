@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.scss';
-import ProfileImage from '../../assets/imgs/profileExample.jpg'
 
 const ProfileThumbnail = () => {
     return (
