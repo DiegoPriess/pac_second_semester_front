@@ -3,6 +3,7 @@ import InputGroup from '../../components/InputGroup';
 import './style.scss';
 import CustomAlert from '../../components/CustomAlert';
 import ReactDOM from 'react-dom';
+import LocalStorageService from '../../services/LocalStorageService';
 
 
 const CreateAccounts = () => {
@@ -14,23 +15,21 @@ const CreateAccounts = () => {
     const PATH = "/criarcontas";
 
     const onCreateAccount = () => {
-
-        let alert;
         
         if(createAccountPrice === "" || createAccountDate === "" || createAccountDescription === "")
         {
-            alert = <CustomAlert urlPath={PATH} labelText="Ops! Todos os campos precisam ser preenchidos" type="negative" />;
+            ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Ops! Todos os campos precisam ser preenchidos" type="negative" />, document.getElementById('root'));
         }
         else
         {
-
             const data = {
                 "descricao": createAccountDescription,
-                "mes": createAccountDate.split("-")[1],
-                "ano": createAccountDate.split("-")[0],
+                "mes": parseInt(createAccountDate.split("-")[1]),
+                "ano": parseInt(createAccountDate.split("-")[0]),
                 "valor": createAccountPrice,
                 "tipo": createAccountType ? "RECEITA" : "DESPESA",
-                "status": "PENDENTE" 
+                "status": "PENDENTE",
+                "usuario": LocalStorageService.getItem("AUTHENTICATED_USER")
             };
 
             fetch("http://localhost:8080/api/lancamentos/salvar", {
@@ -42,17 +41,15 @@ const CreateAccounts = () => {
             })
             .then((data) => {
                 if(data.ok){
-                    alert = <CustomAlert urlPath={PATH} labelText="Conta criada com sucesso." type="positive" />;
+                    ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta criada com sucesso." type="positive" />, document.getElementById('root'));
                 }else{
-                    alert = <CustomAlert urlPath={PATH} labelText="Erro ao criar conta." type="negative" />;
+                    ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Erro ao criar conta." type="negative" /> , document.getElementById('root'));
                 }
             })
             .catch((error) => {
-                alert = <CustomAlert urlPath={PATH} labelText={error} type="negative" />;
+                ReactDOM.render(<CustomAlert urlPath={PATH} labelText={error} type="negative" />, document.getElementById('root'));
             });
         }
-
-        ReactDOM.render(alert, document.getElementById('root'));
     }
 
     return (

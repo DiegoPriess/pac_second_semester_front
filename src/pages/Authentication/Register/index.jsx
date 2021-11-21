@@ -14,8 +14,6 @@ const Register = () => {
     const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
     const PATH_SUCCESS = "/";
     const PATH_ERROR   = "/register";
-
-    let alert;
     
     const onRegisterUser = event => {
         
@@ -23,11 +21,11 @@ const Register = () => {
 
         if(registerUser === "" || registerEmail === "" || registerPassword === "" || registerConfirmPassword === "")
         {
-            alert = <CustomAlert urlPath={PATH_ERROR} labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />;
+            ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />, document.getElementById('root'));
         }
         else if(registerPassword !== registerConfirmPassword)
         {    
-            alert = <CustomAlert urlPath={PATH_ERROR} labelText="Ops! Os campos de senha devem ter o mesmo valor." type="negative" />;
+            ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Ops! Os campos de senha devem ter o mesmo valor." type="negative" />, document.getElementById('root'));
         }
         else
         {
@@ -46,18 +44,14 @@ const Register = () => {
             })
             .then((data) => {
                 if(data.ok){
-                    alert = <CustomAlert urlPath={PATH_SUCCESS} labelText="Usuário cadastrado com sucesso." type="positive" />;
+                    ReactDOM.render(<CustomAlert urlPath={PATH_SUCCESS} labelText="Usuário cadastrado com sucesso." type="positive" />, document.getElementById('root'));
                 }else{
-                    alert = <CustomAlert urlPath={PATH_ERROR} labelText="Erro ao cadastrar usuário." type="negative" />;
+                    ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Erro ao cadastrar usuário." type="negative" />, document.getElementById('root'));
                 }
             })
             .catch((error) => {
-                alert = <CustomAlert urlPath={PATH_ERROR} labelText={error} type="negative" />;
+                ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText={error} type="negative" />, document.getElementById('root'));
             });
-        }
-
-        if(alert){
-            ReactDOM.render(alert, document.getElementById('root'));
         }
     }
 

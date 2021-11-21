@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom';
 const AccountCard = (props) => {
 
     const PATH = window.location.pathname;
-    let alert
 
     const changeStatus = (status, event) => {
         const data = {
@@ -25,18 +24,14 @@ const AccountCard = (props) => {
         })
         .then((data) => {
             if(data.ok){
-                alert = <CustomAlert urlPath={PATH} labelText="Conta finalizada com sucesso." type="positive" />;
+                ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta finalizada com sucesso." type="positive" />, document.getElementById('root'));
             }else{
-                alert = <CustomAlert urlPath={PATH} labelText="Ops! Houve algum erro ao tentar finalizar a conta." type="negative" />;
+                ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Ops! Houve algum erro ao tentar finalizar a conta." type="negative" />, document.getElementById('root'));
             }
         })
         .catch((error) => {
-            alert = <CustomAlert urlPath={PATH} labelText={error} type="negative" />;
+            ReactDOM.render(<CustomAlert urlPath={PATH} labelText={error} type="negative" />, document.getElementById('root'));
         });
-
-        if(alert){
-            ReactDOM.render(alert, document.getElementById('root'));
-        }
     }
 
     const editAccount = () => {

@@ -12,8 +12,6 @@ const Login = () => {
     const [loginSenha, setLoginSenha] = useState("");
     const PATH_SUCCESS = "/menu";
     const PATH_ERROR   = "/";
-
-    let alert;
     
     const onLogin = event => {
         
@@ -21,7 +19,7 @@ const Login = () => {
 
         if(loginEmail === "" || loginSenha === "")
         {
-            alert = <CustomAlert urlPath={PATH_ERROR} labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />;
+            ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />, document.getElementById('root'));
         }
         else
         {
@@ -41,16 +39,12 @@ const Login = () => {
                 if(data.ok){
                     window.location.pathname = PATH_SUCCESS;
                 }else{
-                    alert = <CustomAlert urlPath={PATH_ERROR} labelText="Email ou senha incorreta." type="negative" />;
+                    ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Email ou senha incorreta." type="negative" />, document.getElementById('root'));
                 }
             })
             .catch((error) => {
-                alert = <CustomAlert urlPath={PATH_ERROR} labelText={error} type="negative" />;
+                ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText={error} type="negative" />, document.getElementById('root'));
             });
-        }
-
-        if(alert){
-            ReactDOM.render(alert, document.getElementById('root'));
         }
     }
 
