@@ -8,13 +8,13 @@ const Profile = () => {
     return (
         <form>
             <div className="profile">
-                <label htmlFor="profile-image">
+                {/* <label htmlFor="profile-image">
                     <div className="profile-image">
                         <img src={profileImage} alt="" />
                         <span>Clique aqui para alterar sua foto</span>
                     </div>
                     <input id="profile-image" type="file"/>
-                </label>
+                </label> */}
 
                 <div className="profile-data">
                     <InputGroup readonly={true} id="profile-user" icon="account_circle" labelText="Usuário" inputType="text"/>

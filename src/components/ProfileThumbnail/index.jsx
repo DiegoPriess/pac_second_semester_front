@@ -5,9 +5,9 @@ import ProfileImage from '../../assets/imgs/profileExample.jpg'
 const ProfileThumbnail = () => {
     return (
         <div className="profile-thumbnail">
-            <div className="profile-image">
+            {/* <div className="profile-image">
                 <img src={ProfileImage} alt="" />
-            </div>
+            </div> */}
             <div className="item-content">
                 Diego Priess
             </div>
