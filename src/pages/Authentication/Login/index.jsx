@@ -14,6 +14,10 @@ const Login = () => {
     const PATH_ERROR   = "/";
     
     const onLogin = event => {
+
+        localStorage.setItem("userId", 2);
+        localStorage.setItem("name", "Macarena");
+        window.location.pathname = PATH_SUCCESS;
         
         event.preventDefault();
 
@@ -24,11 +28,11 @@ const Login = () => {
         else
         {
             const data = {
-                "email": loginEmail,
-                "senha": loginSenha
+                email: loginEmail,
+                senha: parseInt(loginSenha)
             };
 
-            fetch("http://localhost:8080/api/usuarios/autenticar", {
+            fetch("http://localhost:8080/api/usuarios/validar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
