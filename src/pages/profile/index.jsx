@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.scss';
-import profileImage from '../../assets/imgs/profileExample.jpg';
 import InputGroup from '../../components/InputGroup';
 import './style.scss';
 
