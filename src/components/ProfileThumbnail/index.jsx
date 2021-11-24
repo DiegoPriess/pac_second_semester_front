@@ -8,7 +8,7 @@ const ProfileThumbnail = () => {
                 <img src={ProfileImage} alt="" />
             </div> */}
             <div className="item-content">
-                Diego Priess
+                {localStorage.getItem("name")}
             </div>
         </div>
     );

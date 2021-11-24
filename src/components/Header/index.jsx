@@ -6,6 +6,12 @@ import ProfileThumbnail from '../ProfileThumbnail';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+
+    const logout = () => {
+        localStorage.clear();
+        window.location.pathname = "/";
+    }
+
     return (
         <div className="header">
             <div className="header-item logo-item">
@@ -21,7 +27,7 @@ const Header = () => {
             <div className="header-item">
                 <div className="logout-item">
                     <Link to="/perfil"><ProfileThumbnail /></Link>
-                    <Link to="/"><i className="material-icons">logout</i></Link>
+                    <i className="material-icons" onClick={logout}>logout</i>
                 </div>
             </div>
             

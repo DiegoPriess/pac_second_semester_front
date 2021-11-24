@@ -30,7 +30,8 @@ const AccountCard = (props) => {
             }
         })
         .catch((error) => {
-            ReactDOM.render(<CustomAlert urlPath={PATH} labelText={error} type="negative" />, document.getElementById('root'));
+            let alert = <CustomAlert urlPath={PATH} labelText={error} type="negative" />;
+            ReactDOM.render(alert, document.getElementById('root'));
         });
     }
 

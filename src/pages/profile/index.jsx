@@ -17,9 +17,8 @@ const Profile = () => {
                 </label> */}
 
                 <div className="profile-data">
-                    <InputGroup readonly={true} id="profile-user" icon="account_circle" labelText="Usuário" inputType="text"/>
-                    <InputGroup readonly={true} id="profile-email" icon="email" labelText="E-mail" inputType="email"/>
-                    <InputGroup readonly={true} id="profile-initial-money" icon="attach_money" labelText="Saldo Inicial" inputType="number"/>
+                    <InputGroup readonly={true} id="profile-user" icon="account_circle" labelText="Usuário" inputType="text" inputValue={localStorage.getItem("name")}/>
+                    <InputGroup readonly={true} id="profile-email" icon="email" labelText="E-mail" inputType="email" inputValue={localStorage.getItem("email")}/>
                 </div>
             
             </div>

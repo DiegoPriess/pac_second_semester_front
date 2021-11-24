@@ -17,6 +17,7 @@ const Login = () => {
 
         localStorage.setItem("userId", 2);
         localStorage.setItem("name", "Macarena");
+        localStorage.setItem("email", loginEmail);
         window.location.pathname = PATH_SUCCESS;
         
         event.preventDefault();
@@ -54,7 +55,7 @@ const Login = () => {
 
     return (
         <form action="">
-            <InputGroup icon="account_circle" labelText="Usuário ou E-mail" inputType="text" inputValue={loginEmail} onChangeFunction={event => { setLoginEmail(event.target.value) }}/>
+            <InputGroup icon="account_circle" labelText="E-mail" inputType="text" inputValue={loginEmail} onChangeFunction={event => { setLoginEmail(event.target.value) }}/>
             <InputGroup icon="lock" id="password" labelText="Senha" inputType="password" inputValue={loginSenha} onChangeFunction={event => { setLoginSenha(event.target.value) }}/>
             <div className="actions-container">
                 <Link to={"/menu"}><Button onClickFunction={onLogin} textButton="Entrar"/></Link>
