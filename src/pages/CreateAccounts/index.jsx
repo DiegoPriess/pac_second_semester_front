@@ -3,7 +3,6 @@ import InputGroup from '../../components/InputGroup';
 import './style.scss';
 import CustomAlert from '../../components/CustomAlert';
 import ReactDOM from 'react-dom';
-import LocalStorageService from '../../services/LocalStorageService';
 
 
 const CreateAccounts = () => {
@@ -14,7 +13,9 @@ const CreateAccounts = () => {
     const [createAccountType, setCreateAccountType] = useState(false);
     const PATH = "/criarcontas";
 
-    const onCreateAccount = () => {
+    const onCreateAccount = (event) => {
+        
+        event.preventDefault();
         
         if(createAccountPrice === "" || createAccountDate === "" || createAccountDescription === "")
         {
@@ -26,13 +27,13 @@ const CreateAccounts = () => {
                 "descricao": createAccountDescription,
                 "mes": parseInt(createAccountDate.split("-")[1]),
                 "ano": parseInt(createAccountDate.split("-")[0]),
-                "valor": createAccountPrice,
+                "valor": parseInt(createAccountPrice),
                 "tipo": createAccountType ? "RECEITA" : "DESPESA",
                 "status": "PENDENTE",
-                "usuario": LocalStorageService.getItem("AUTHENTICATED_USER")
+                "usuario": parseInt(localStorage.getItem("userId"))
             };
 
-            fetch("http://localhost:8080/api/lancamentos/salvar", {
+            fetch("http://localhost:8080/api/lancamentos", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
