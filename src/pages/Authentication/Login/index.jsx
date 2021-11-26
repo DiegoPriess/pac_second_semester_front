@@ -14,11 +14,6 @@ const Login = () => {
     const PATH_ERROR   = "/";
     
     const onLogin = event => {
-
-        localStorage.setItem("userId", 2);
-        localStorage.setItem("name", "Macarena");
-        localStorage.setItem("email", loginEmail);
-        window.location.pathname = PATH_SUCCESS;
         
         event.preventDefault();
 
@@ -29,27 +24,30 @@ const Login = () => {
         else
         {
             const data = {
-                email: loginEmail,
-                senha: parseInt(loginSenha)
+                "email": loginEmail,
+                "senha": loginSenha
             };
-
-            fetch("http://localhost:8080/api/usuarios/validar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
+            
+            fetch("http://localhost:8080/api/usuarios/autenticar", {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data)
             })
-            .then((data) => {
-                if(data.ok){
+            .then((resp) => { 
+                resp.json()
+                .then((result) => {
+                    localStorage.setItem("userId", result);
                     window.location.pathname = PATH_SUCCESS;
-                }else{
-                    ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Email ou senha incorreta." type="negative" />, document.getElementById('root'));
-                }
+                })
+                .catch(() => {
+                    ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Email ou senha incorretos" type="negative" />, document.getElementById('root'));
+                }) 
             })
             .catch((error) => {
                 ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText={error} type="negative" />, document.getElementById('root'));
-            });
+            })
         }
     }
 
