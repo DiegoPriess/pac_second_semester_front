@@ -38,7 +38,6 @@ const Login = () => {
             .then((resp) => { 
                 resp.json()
                 .then((result) => {
-                    console.log(result)
                     localStorage.setItem("userId", result.id);
                     localStorage.setItem("name", result.nome);
                     localStorage.setItem("email", result.email);
