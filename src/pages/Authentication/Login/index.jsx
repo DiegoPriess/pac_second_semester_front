@@ -38,7 +38,10 @@ const Login = () => {
             .then((resp) => { 
                 resp.json()
                 .then((result) => {
-                    localStorage.setItem("userId", result);
+                    console.log(result)
+                    localStorage.setItem("userId", result.id);
+                    localStorage.setItem("name", result.nome);
+                    localStorage.setItem("email", result.email);
                     window.location.pathname = PATH_SUCCESS;
                 })
                 .catch(() => {
