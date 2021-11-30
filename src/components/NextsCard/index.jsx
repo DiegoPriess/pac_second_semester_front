@@ -6,7 +6,7 @@ import { get } from '../../api/api';
 const NextsCard = (props) => {
 
     const filterList = (list) => {
-        return list.filter((account) => {return account.tipo === filterType && account.usuario.id === parseInt(localStorage.getItem('userId'))})
+        return list.filter((account) => {return account.tipo === filterType && account.usuario.id === parseInt(localStorage.getItem('userId')) && account.status != "CANCELADO"})
     }
 
     let filterType = props.type === "negative" ? "DESPESA" : "RECEITA";
