@@ -43,7 +43,7 @@ function App() {
               <Header />
               <div className="body">
                 <NavBar />
-                <Accounts accountType="pendant"/>
+                <Accounts type="pendant"/>
               </div>
             </div>   
           </Route>
@@ -53,7 +53,7 @@ function App() {
               <Header />
               <div className="body">
                 <NavBar />
-                <Accounts accountType="finish"/>
+                <Accounts type="finish"/>
               </div>
             </div>   
           </Route>
