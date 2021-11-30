@@ -34,7 +34,7 @@ const AccountCard = (props) => {
             <div className="actions">
                 {!props.isDone ? <i onClick={() => changeStatus("EFETIVADO", props.id)} className="material-icons done">done</i> : ""}
                 <i onClick={() => changeStatus("CANCELADO", props.id)} className="material-icons close">close</i>
-                <i onClick={() => editAccount()} className="material-icons edit">edit</i>
+                {/* <i onClick={() => editAccount()} className="material-icons edit">edit</i> */}
             </div>
         </div>
     );

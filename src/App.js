@@ -31,8 +31,8 @@ function App() {
               <div className="body">
                 <NavBar />
                 <div className="nexts-cards-container"> 
-                  <NextsCard accountType="positive"/>
-                  <NextsCard accountType="negative"/>
+                  <NextsCard type="positive"/>
+                  <NextsCard type="negative"/>
                 </div>
               </div>
             </div>

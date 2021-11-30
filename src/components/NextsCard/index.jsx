@@ -1,40 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.scss';
 import AccountCard from '../AccountCard';
+import { get } from '../../api/api';
 
 const NextsCard = (props) => {
 
+    const filterList = (list) => {
+        return list.filter((account) => {return account.tipo === filterType && account.usuario.id === parseInt(localStorage.getItem('userId'))})
+    }
 
-  let accountList;
+    let filterType = props.type === "negative" ? "DESPESA" : "RECEITA";
 
-  if(props.accountType === "negative"){
-      accountList = [{title: "Conta1", type: "negative", description: "teste", price: "400.00", date: "11/12/2010"},{title: "Conta1", type: "negative", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta2", type: "negative", description: "teste", price: "400.00", date: "11/12/2010"},{title: "Conta1", type: "negative", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta3", type: "negative", description: "teste", price: "450.00", date: "11/12/2010"},{title: "Conta1", type: "negative", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta4", type: "negative", description: "teste", price: "225.00", date: "11/12/2010"},{title: "Conta1", type: "negative", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta5", type: "negative", description: "teste", price: "200.00", date: "11/12/2010"}
-      ];
-  }else{
-      accountList = [{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta2", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta3", type: "positive", description: "teste", price: "450.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta4", type: "positive", description: "teste", price: "225.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta5", type: "positive", description: "teste", price: "200.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta6", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta7", type: "positive", description: "teste", price: "800.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta8", type: "positive", description: "teste", price: "1340.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
-          {title: "Conta9", type: "positive", description: "teste", price: "700.00", date: "11/12/2010"},{title: "Conta1", type: "positive", description: "teste", price: "400.00", date: "11/12/2010"},
-      ];
-  }
-    
-  return (
-    <div className="nexts-cards">
-      <i className="material-icons accounts-icon">{props.accountType === "negative" ? "money_off" : "attach_money"}</i>
-          {accountList.map( (account, index) => {
-              return <AccountCard key={index} title={account.title} type={account.type}  description={account.description} price={account.price} date={account.date} />
-          })}
-    </div>
-  );
+    const[accountList, setAccountList] = useState([])
+
+    useEffect(() => {
+        get(`/api/lancamentos/obterTodosLancamentos`, setAccountList);
+    }, []);
+
+    return (
+        <div className="nexts-cards">
+            <i className={`${props.type} material-icons accounts-icon`}>{ props.type === "negative" ? "money_off" : "attach_money "}</i>
+            {filterList(accountList).map((account) => {
+                return <AccountCard key={account.id} id={account.id} type={account.tipo} price={account.valor} description={account.descricao} date={`${account.mes}/${account.ano}`} isDone={account.status === "EFETIVADO"} />
+            })}
+        </div>
+    );
 }
 
 export default NextsCard;
