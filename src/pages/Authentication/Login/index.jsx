@@ -5,11 +5,13 @@ import './style.scss';
 import { Link } from 'react-router-dom';
 import CustomAlert from '../../../components/CustomAlert';
 import ReactDOM from 'react-dom';
+import { api } from '../../../api/api';
 
 const Login = () => {
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginSenha, setLoginSenha] = useState("");
+    const [loginResponse, setLoginResponse] = useState();
     const PATH_SUCCESS = "/menu";
     const PATH_ERROR   = "/";
     
@@ -22,34 +24,19 @@ const Login = () => {
             ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Ops! Todos os campos precisam ser preenchidos." type="negative" />, document.getElementById('root'));
         }
         else
-        {
-            const data = {
-                "email": loginEmail,
-                "senha": loginSenha
-            };
-            
-            fetch("http://localhost:8080/api/usuarios/autenticar", {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data)
-            })
-            .then((resp) => { 
-                resp.json()
-                .then((result) => {
-                    localStorage.setItem("userId", result.id);
-                    localStorage.setItem("name", result.nome);
-                    localStorage.setItem("email", result.email);
+        { 
+            api.get(`user/authentication/${loginEmail}/${loginSenha}`).then((response) => {
+                if(response.data?.length > 0){
+                    localStorage.setItem("name", response.data[0].name);
+                    localStorage.setItem("email", response.data[0].email);
+                    localStorage.setItem("password", response.data[0].password);
                     window.location.pathname = PATH_SUCCESS;
-                })
-                .catch(() => {
-                    ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Email ou senha incorretos" type="negative" />, document.getElementById('root'));
-                }) 
+                }else{
+                    ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText={"Email ou senha incorreta"} type="negative" />, document.getElementById('root'));
+                }  
             })
-            .catch((error) => {
-                ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText={error} type="negative" />, document.getElementById('root'));
-            })
+
+            
         }
     }
 
