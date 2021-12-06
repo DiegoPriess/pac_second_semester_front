@@ -5,6 +5,7 @@ import './style.scss';
 import { Link } from 'react-router-dom';
 import CustomAlert from '../../../components/CustomAlert';
 import ReactDOM from 'react-dom';
+import { api } from '../../../api/api';
 
 const Register = () => {
 
@@ -30,18 +31,12 @@ const Register = () => {
         else
         {
             const data = {
+                "name": registerUser,
                 "email": registerEmail,
-                "nome": registerUser,
-                "senha": registerPassword
+                "password": registerPassword
             };
 
-            fetch("http://localhost:8080/api/usuarios", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-            })
+            api.post('user/register', data)
             .then((data) => {
                 if(data.ok){
                     ReactDOM.render(<CustomAlert urlPath={PATH_SUCCESS} labelText="Usuário cadastrado com sucesso." type="positive" />, document.getElementById('root'));
