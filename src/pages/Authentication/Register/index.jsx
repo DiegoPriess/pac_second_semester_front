@@ -38,7 +38,7 @@ const Register = () => {
 
             api.post('user/register', data)
             .then((data) => {
-                if(data.ok){
+                if(data.status === 200){
                     ReactDOM.render(<CustomAlert urlPath={PATH_SUCCESS} labelText="Usuário cadastrado com sucesso." type="positive" />, document.getElementById('root'));
                 }else{
                     ReactDOM.render(<CustomAlert urlPath={PATH_ERROR} labelText="Erro ao cadastrar usuário." type="negative" />, document.getElementById('root'));
