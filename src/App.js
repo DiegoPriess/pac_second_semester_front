@@ -43,7 +43,7 @@ function App() {
               <Header />
               <div className="body">
                 <NavBar />
-                <Accounts type="pendant"/>
+                <Accounts type="pending"/>
               </div>
             </div>   
           </Route>

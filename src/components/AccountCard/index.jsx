@@ -14,21 +14,16 @@ const AccountCard = (props) => {
         get(`/api/lancamentos/atualiza-status/${id}/${status}`, setRequestOk);
 
         if(requestOk){
-            console.log(requestOk);
             ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta finalizada com sucesso." type="positive" />, document.getElementById('root'));
         }else{
             ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Ops! Houve algum erro ao tentar finalizar a conta." type="negative" />, document.getElementById('root'));
         }
     }
 
-    const editAccount = () => {
-        
-    }
-
     return (
         <div className="account-card">
             <p className="card-description">{props.description}</p>   
-            <i className={`${props.type === "DESPESA" ? "negative" : "positive"} material-icons`}>{props.type === "DESPESA" ? "money_off" : "attach_money "}</i>
+            <i className={`${props.type} material-icons`}>{props.type === "negative" ? "money_off" : "attach_money "}</i>
             <p className="price">{`R$${props.price}`}</p>
             <p className="date">{props.date}</p>
             <div className="actions">

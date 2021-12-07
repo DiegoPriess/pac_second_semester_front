@@ -30,7 +30,7 @@ const CreateAccounts = () => {
                 "year": parseInt(createAccountDate.split("-")[0]),
                 "price": parseInt(createAccountPrice),
                 "type": createAccountType ? "positive" : "negative",
-                "status": "pendant",
+                "status": "pending",
                 "currentUser": {
                     "email": localStorage.getItem("email"),
                     "password": localStorage.getItem("password") 

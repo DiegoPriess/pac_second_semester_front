@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import './style.scss';
 import AccountCard from '../AccountCard';
-import { get } from '../../api/api';
+import { api } from '../../api/api';
 
 const NextsCard = (props) => {
 
-    const filterList = (list) => {
-        return list.filter((account) => {return account.tipo === filterType && account.usuario.id === parseInt(localStorage.getItem('userId')) && account.status !== "CANCELADO"})
-    }
-
-    let filterType = props.type === "negative" ? "DESPESA" : "RECEITA";
-
     const[accountList, setAccountList] = useState([])
-
+  
     useEffect(() => {
-        get(`/api/lancamentos/obterTodosLancamentos`, setAccountList);
+        api.get(`account/getByType/${props.type}/${localStorage.getItem("email")}/${localStorage.getItem("password")}`, setAccountList).then((response) => {
+            setAccountList(response.data.result);
+        })
     }, []);
 
     return (
         <div className="nexts-cards">
-            <i className={`${props.type} material-icons accounts-icon`}>{ props.type === "negative" ? "money_off" : "attach_money "}</i>
-            {filterList(accountList).length > 0 ? filterList(accountList).map((account) => {
-                return <AccountCard key={account.id} id={account.id} type={account.tipo} price={account.valor} description={account.descricao} date={`${account.mes}/${account.ano}`} isDone={account.status === "EFETIVADO"} />
+            <i className={`${props.type} material-icons accounts-icon`}>{ props.type == "negative" ? "money_off" : "attach_money "}</i>
+            {accountList.length > 0 ? accountList.map((account) => {
+                return <AccountCard key={account.id} id={account.id} type={account.type} price={account.price} description={account.description} date={`${account.month}/${account.year}`} isDone={account.status === "EFETIVADO"} />
             }) : <p class="empty">Nenhuma conta encontrada</p> }
         </div>
     );
