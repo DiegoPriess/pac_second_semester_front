@@ -11,7 +11,6 @@ const Login = () => {
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginSenha, setLoginSenha] = useState("");
-    const [loginResponse, setLoginResponse] = useState();
     const PATH_SUCCESS = "/menu";
     const PATH_ERROR   = "/";
     

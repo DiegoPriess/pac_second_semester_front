@@ -3,6 +3,7 @@ import InputGroup from '../../components/InputGroup';
 import './style.scss';
 import CustomAlert from '../../components/CustomAlert';
 import ReactDOM from 'react-dom';
+import { api } from '../../api/api';
 
 
 const CreateAccounts = () => {
@@ -24,24 +25,20 @@ const CreateAccounts = () => {
         else
         {
             const data = {
-                "descricao": createAccountDescription,
-                "mes": parseInt(createAccountDate.split("-")[1]),
-                "ano": parseInt(createAccountDate.split("-")[0]),
-                "valor": parseInt(createAccountPrice),
-                "tipo": createAccountType ? "RECEITA" : "DESPESA",
-                "status": "PENDENTE",
-                "usuario": parseInt(localStorage.getItem("userId"))
+                "description": createAccountDescription,
+                "month": parseInt(createAccountDate.split("-")[1]),
+                "year": parseInt(createAccountDate.split("-")[0]),
+                "price": parseInt(createAccountPrice),
+                "type": createAccountType ? "positive" : "negative",
+                "status": "pendant",
+                "currentUser": {
+                    "email": localStorage.getItem("email"),
+                    "password": localStorage.getItem("password") 
+                }
             };
 
-            fetch("http://localhost:8080/api/lancamentos", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            })
-            .then((data) => {
-                if(data.ok){
+            api.post(`account/register`, data).then((response) => {
+                if(response.status === 200){
                     ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta criada com sucesso." type="positive" />, document.getElementById('root'));
                 }else{
                     ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Erro ao criar conta." type="negative" /> , document.getElementById('root'));
@@ -50,6 +47,8 @@ const CreateAccounts = () => {
             .catch((error) => {
                 ReactDOM.render(<CustomAlert urlPath={PATH} labelText={error} type="negative" />, document.getElementById('root'));
             });
+           
+            
         }
     }
 
