@@ -43,7 +43,7 @@ function App() {
               <Header />
               <div className="body">
                 <NavBar />
-                <Accounts type="pending"/>
+                <Accounts status="pending"/>
               </div>
             </div>   
           </Route>
@@ -53,7 +53,7 @@ function App() {
               <Header />
               <div className="body">
                 <NavBar />
-                <Accounts type="finish"/>
+                <Accounts status="finish"/>
               </div>
             </div>   
           </Route>

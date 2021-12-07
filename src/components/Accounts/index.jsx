@@ -1,27 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import './style.scss';
 import AccountCard from '../AccountCard';
-import { get } from '../../api/api';
+import { api } from '../../api/api';
 
 const Accounts = (props) => {
-
-    const filterList = (list) => {
-        return list.filter((account) => {return account.status === filterStatus && account.usuario.id === parseInt(localStorage.getItem('userId'))})
-    }
-
-    let filterStatus = props.type === "finish" ? "EFETIVADO" : "PENDENTE";
 
     const[accountList, setAccountList] = useState([])
   
     useEffect(() => {
-      get(`/api/lancamentos/obterTodosLancamentos`, setAccountList);
-    }, []);
+        api.get(`account/getByStatus/${props.status}/${localStorage.getItem("email")}/${localStorage.getItem("password")}`, setAccountList).then((response) => {
+            setAccountList(response.data.result);
+        })
+    }, [props.status]);
+
 
     return (
         <div className="accounts">
-            <i className="material-icons accounts-icon">{ props.type === "finish" ? "done" : "schedule"}</i>
-            {filterList(accountList).length > 0 ? filterList(accountList).map((account) => {
-                return <AccountCard key={account.id} id={account.id} type={account.tipo} price={account.valor} description={account.descricao} date={`${account.mes}/${account.ano}`} isDone={account.status === "EFETIVADO"} />
+            <i className="material-icons accounts-icon">{ props.status === "finish" ? "done" : "schedule"}</i>
+            {accountList.length > 0 ? accountList.map((account) => {
+                return <AccountCard key={account.id} id={account.id} type={account.type} price={account.price} description={account.description} date={`${account.month}/${account.year}`} isDone={account.status === "finish"} />
             }) :  <p className="empty">Nenhuma conta encontrada</p>}
         </div>
     );
