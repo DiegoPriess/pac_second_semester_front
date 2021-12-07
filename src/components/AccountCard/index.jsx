@@ -2,22 +2,35 @@ import React, { useState } from 'react';
 import CustomAlert from '../CustomAlert';
 import './style.scss';
 import ReactDOM from 'react-dom';
-import { get } from '../../api/api';
+import { api } from '../../api/api';
 
 const AccountCard = (props) => {
 
     const PATH = window.location.pathname;
-    const [requestOk, setRequestOk] = useState([]);
 
     const changeStatus = (status, id) => {
-
-        get(`/api/lancamentos/atualiza-status/${id}/${status}`, setRequestOk);
-
-        if(requestOk){
-            ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta finalizada com sucesso." type="positive" />, document.getElementById('root'));
-        }else{
-            ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Ops! Houve algum erro ao tentar finalizar a conta." type="negative" />, document.getElementById('root'));
+        const data = {
+            "status": status,
+            "id_account": id
         }
+
+        api.post(`account/changeStatus`, data).then((response) => {
+            if(response.status === 200){
+                ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta finalizada com sucesso." type="positive" />, document.getElementById('root'));
+            }else{
+                ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Ops! Houve algum erro ao tentar finalizar a conta." type="negative" />, document.getElementById('root'));
+            }
+        })
+    }
+
+    const deleteAccount = (id) => {
+        api.get(`account/delete/${id}`).then((response) => {
+            if(response.status === 200){
+                ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta finalizada com sucesso." type="positive" />, document.getElementById('root'));
+            }else{
+                ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Ops! Houve algum erro ao tentar finalizar a conta." type="negative" />, document.getElementById('root'));
+            }
+        })
     }
 
     return (
@@ -27,8 +40,8 @@ const AccountCard = (props) => {
             <p className="price">{`R$${props.price}`}</p>
             <p className="date">{props.date}</p>
             <div className="actions">
-                {!props.isDone ? <i onClick={() => changeStatus("EFETIVADO", props.id)} className="material-icons done">done</i> : ""}
-                <i onClick={() => changeStatus("CANCELADO", props.id)} className="material-icons close">close</i>
+                {!props.isDone ? <i onClick={() => changeStatus("finish", props.id)} className="material-icons done">done</i> : ""}
+                <i onClick={() => deleteAccount(props.id)} className="material-icons close">close</i>
                 {/* <i onClick={() => editAccount()} className="material-icons edit">edit</i> */}
             </div>
         </div>
