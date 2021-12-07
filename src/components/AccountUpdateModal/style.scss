@@ -1,0 +1,70 @@
+.account-update-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+
+    .account-update-modal-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 70%;
+        height: 70%;
+        background: #f5f5f5;
+        border-radius: 10px;
+
+        .account-update-modal-text{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            i{
+                font-size: 2em;
+                margin-right: .5em;
+            }
+
+            label{
+                font-size: 1.5em;
+            }
+
+            .positive{
+                color: #00c96b;
+            }
+        
+            .negative{
+                color: #c90000;
+            }
+        }
+
+        button{
+            border: none;
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 35px;
+
+            background: #0057c9;
+            color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        button:hover{
+            filter: brightness(90%)
+        }
+
+        button{
+            transition: .3s;
+        }
+    }
+}
