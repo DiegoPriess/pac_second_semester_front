@@ -4,7 +4,7 @@ import Error404 from "./pages/Error404";
 import Authentication from './pages/Authentication';
 import NavBar from './components/NavBar';
 import Header from './components/Header';
-import NextsCard from './components/NextsCard';
+import NextCard from './components/NextCard';
 import Accounts from './components/Accounts';
 import Statistics from './pages/statistics';
 import Profile from './pages/profile';
@@ -30,9 +30,9 @@ function App() {
               <Header />
               <div className="body">
                 <NavBar />
-                <div className="nexts-cards-container"> 
-                  <NextsCard type="positive"/>
-                  <NextsCard type="negative"/>
+                <div className="next-cards-container"> 
+                  <NextCard type="positive"/>
+                  <NextCard type="negative"/>
                 </div>
               </div>
             </div>

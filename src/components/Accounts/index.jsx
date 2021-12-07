@@ -22,7 +22,7 @@ const Accounts = (props) => {
             <i className="material-icons accounts-icon">{ props.type === "finish" ? "done" : "schedule"}</i>
             {filterList(accountList).length > 0 ? filterList(accountList).map((account) => {
                 return <AccountCard key={account.id} id={account.id} type={account.tipo} price={account.valor} description={account.descricao} date={`${account.mes}/${account.ano}`} isDone={account.status === "EFETIVADO"} />
-            }) :  <p class="empty">Nenhuma conta encontrada</p>}
+            }) :  <p className="empty">Nenhuma conta encontrada</p>}
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CustomAlert from '../CustomAlert';
 import './style.scss';
 import ReactDOM from 'react-dom';
