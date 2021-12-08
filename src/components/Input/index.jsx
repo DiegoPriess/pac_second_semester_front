@@ -12,7 +12,7 @@ const Input = (props) => {
                     <input id={props.id} type="file"/>
                 </>
                 : 
-                <input className="input" id={props.id} readonly={props.readonly ? props.readonly.toString() : false} 
+                <input className="input" id={props.id} readOnly={props.readonly ? props.readonly.toString() : false} 
                     type={props.inputType} value={props.inputValue} onChange={props.onChangeFunction} />}
         </>
     );

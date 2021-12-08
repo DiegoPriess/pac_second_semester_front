@@ -18,7 +18,7 @@ const Accounts = (props) => {
     return (
         <div className="accounts">
             <i className="material-icons accounts-icon">{ props.status === "finish" ? "done" : "schedule"}</i>
-            {accountList.length > 0 ? accountList.map((account) => {  
+            {accountList?.length > 0 ? accountList.map((account) => {  
                 return <AccountCard key={account.id} id={account.id} type={account.type} price={account.price} description={account.description} date={`${formateDate("pt", account.date)}`} isDone={account.status === "finish"} />
             }) :  <p className="empty">Nenhuma conta encontrada</p>}
         </div>

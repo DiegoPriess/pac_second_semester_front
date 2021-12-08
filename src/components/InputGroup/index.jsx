@@ -10,7 +10,7 @@ const InputGroup = (props) => {
                 {props.icon ? <i className="material-icons">{ props.icon }</i> : "" } 
                 <span>{props.labelText}</span>
             </label>
-            { props.inputType === "password" ? <PasswordInput id={props.id} inputValue={props.inputValue} onChangeFunction={props.onChangeFunction}/> : <Input id={props.id} inputValue={props.inputValue} onChangeFunction={props.onChangeFunction} readonly={props.readonly} inputType={props.inputType}/>}
+            { props.inputType === "password" ? <PasswordInput id={props.id} inputValue={props.inputValue} onChangeFunction={props.onChangeFunction}/> : <Input id={props.id} inputValue={props.inputValue} onChangeFunction={props.onChangeFunction} readOnly={props.readonly} inputType={props.inputType}/>}
         </div>
     );
 }
