@@ -10,6 +10,7 @@ import Statistics from './pages/statistics';
 import Profile from './pages/profile';
 import CreateAccounts from './pages/CreateAccounts';
 import AccountUpdateModal from './components/AccountUpdateModal';
+import Search from './pages/Search';
 
 function App() {
   
@@ -86,6 +87,15 @@ function App() {
                 <Profile />
               </div>
             </div>   
+          </Route>
+
+          <Route exact path='/search/:searchText'>
+            <div className="content">
+              <Header />
+              <div className="body">
+                <Search/>
+              </div>
+            </div>
           </Route>
 
           <Route>

@@ -1,7 +1,6 @@
 import React from 'react';
 import './style.scss';
 import InputGroup from '../../components/InputGroup';
-import './style.scss';
 
 const Profile = () => {
     return (
