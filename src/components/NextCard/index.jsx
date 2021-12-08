@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './style.scss';
 import AccountCard from '../AccountCard';
 import { api } from '../../api/api';
+import { formateDate } from '../../utils';
 
 const NextCard = (props) => {
 
@@ -17,7 +18,9 @@ const NextCard = (props) => {
         <div className="next-cards">
             <i className={`${props.type} material-icons accounts-icon`}>{ props.type === "negative" ? "money_off" : "attach_money "}</i>
             {accountList.length > 0 ? accountList.map((account) => {
-                return <AccountCard key={account.id} id={account.id} type={account.type} price={account.price} description={account.description} date={`${account.month}/${account.year}`} isDone={account.status === "finish"} />
+                let date = new Date(account.date);
+                date = ((date.getDate() )) + "/" + ((date.getMonth() + 1)) + "/" + date.getFullYear();
+                return <AccountCard key={account.id} id={account.id} type={account.type} price={account.price} description={account.description} date={`${formateDate("pt", account.date)}`} isDone={account.status === "finish"} />
             }) : <p className="empty">Nenhuma conta encontrada</p> }
         </div>
     );

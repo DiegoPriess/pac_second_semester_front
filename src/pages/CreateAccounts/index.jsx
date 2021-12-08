@@ -26,8 +26,7 @@ const CreateAccounts = () => {
         {
             const data = {
                 "description": createAccountDescription,
-                "month": parseInt(createAccountDate.split("-")[1]),
-                "year": parseInt(createAccountDate.split("-")[0]),
+                "date": createAccountDate,
                 "price": parseInt(createAccountPrice),
                 "type": createAccountType ? "positive" : "negative",
                 "status": "pending",

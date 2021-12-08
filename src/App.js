@@ -9,6 +9,7 @@ import Accounts from './components/Accounts';
 import Statistics from './pages/statistics';
 import Profile from './pages/profile';
 import CreateAccounts from './pages/CreateAccounts';
+import AccountUpdateModal from './components/AccountUpdateModal';
 
 function App() {
   
@@ -27,6 +28,7 @@ function App() {
 
           <Route exact path='/menu'>
             <div className="content">
+              {/* <AccountUpdateModal id="1"/> */}
               <Header />
               <div className="body">
                 <NavBar />

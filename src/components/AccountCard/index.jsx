@@ -3,15 +3,16 @@ import CustomAlert from '../CustomAlert';
 import './style.scss';
 import ReactDOM from 'react-dom';
 import { api } from '../../api/api';
+import AccountUpdateModal from '../AccountUpdateModal';
 
 const AccountCard = (props) => {
 
     const PATH = window.location.pathname;
 
-    const changeStatus = (status, id) => {
+    const changeStatus = (status) => {
         const data = {
             "status": status,
-            "id_account": id
+            "id_account": props.id
         }
 
         api.post(`account/changeStatus`, data).then((response) => {
@@ -23,14 +24,18 @@ const AccountCard = (props) => {
         })
     }
 
-    const deleteAccount = (id) => {
-        api.get(`account/delete/${id}`).then((response) => {
+    const deleteAccount = () => {
+        api.get(`account/delete/${props.id}`).then((response) => {
             if(response.status === 200){
-                ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta finalizada com sucesso." type="positive" />, document.getElementById('root'));
+                ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta excluída com sucesso." type="positive" />, document.getElementById('root'));
             }else{
                 ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Ops! Houve algum erro ao tentar finalizar a conta." type="negative" />, document.getElementById('root'));
             }
         })
+    }
+
+    const editAccount = () => {
+        ReactDOM.render(<AccountUpdateModal id={props.id} />, document.getElementById('root'));
     }
 
     return (
@@ -40,9 +45,9 @@ const AccountCard = (props) => {
             <p className="price">{`R$${props.price}`}</p>
             <p className="date">{props.date}</p>
             <div className="actions">
-                {!props.isDone ? <i onClick={() => changeStatus("finish", props.id)} className="material-icons done">done</i> : ""}
-                <i onClick={() => deleteAccount(props.id)} className="material-icons close">close</i>
-                {/* <i onClick={() => editAccount()} className="material-icons edit">edit</i> */}
+                {!props.isDone ? <i onClick={() => changeStatus("finish")} className="material-icons done">done</i> : ""}
+                <i onClick={() => deleteAccount()} className="material-icons close">close</i>
+                <i onClick={() => editAccount()} className="material-icons edit">edit</i>
             </div>
         </div>
     );
