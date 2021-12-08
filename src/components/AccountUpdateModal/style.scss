@@ -104,53 +104,19 @@
                     transition: 0.3s;
                 }
             }
-        }
 
-        .account-update-modal-text{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-
-            i{
-                font-size: 2em;
-                margin-right: .5em;
-            }
-
-            label{
-                font-size: 20px;
-            }
-
-            .positive{
-                color: #00c96b;
-            }
-        
-            .negative{
-                color: #c90000;
-            }
-        }
-
-        button{
-            border: none;
-            border-radius: 10px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100px;
-            height: 35px;
-
-            background: #0057c9;
-            color: #f5f5f5;
-            font-weight: bold;
-        }
-
-        button:hover{
-            filter: brightness(90%)
-        }
-
-        button{
-            transition: .3s;
+            select{
+                display: flex;
+                align-items: center;
+                height: 50px;
+                width: 100%;
+                border: 2px solid #ababab;
+                border-radius: 5px;
+                padding: 10px;
+                font-size: 1.2em;
+                margin: 10px 0;
+                color: #696969; 
+             }
         }
     }
 }

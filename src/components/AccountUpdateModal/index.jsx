@@ -11,8 +11,9 @@ const AccountUpdateModal = (props) => {
     const [updateAccountPrice, setUpdateAccountPrice] = useState("");
     const [updateAccountDate, setUpdateAccountDate] = useState("");
     const [updateAccountDescription, setUpdateAccountDescription] = useState("");
-    const [updateAccountType, setUpdateAccountType] = useState(false);
+    const [updateAccountType, setUpdateAccountType] = useState("");
     const [updateAccountStatus, setUpdateAccountStatus] = useState("");
+    const [status, setStatus] = useState("");
     const PATH = window.location.pathname;
 
     const onUpdateAccount = (event) => {
@@ -30,7 +31,7 @@ const AccountUpdateModal = (props) => {
                 "date": updateAccountDate,
                 "price": parseInt(updateAccountPrice),
                 "type": updateAccountType ? "positive" : "negative",
-                "status": updateAccountStatus,
+                "status": status !== "" ? status : updateAccountStatus,
                 "id_account": props.id,
                 "currentUser": {
                     "email": localStorage.getItem("email"),
@@ -59,7 +60,7 @@ const AccountUpdateModal = (props) => {
                 setUpdateAccountDescription(response.data.result[0].description);
                 setUpdateAccountDate(formateDate("default", response.data.result[0].date));
                 setUpdateAccountPrice(response.data.result[0].price);
-                setUpdateAccountType(response.data.result[0].type === "positive" ? true : false);
+                setUpdateAccountType(response.data.result[0].type === "positive");
                 setUpdateAccountStatus(response.data.result[0].status);
             }
         })
@@ -67,34 +68,38 @@ const AccountUpdateModal = (props) => {
 
     return (
         <div className="account-update-modal">
-            <div className="account-update-modal-content">
-                <div className="account-update-modal-text">                    
-                    <form>
-                        <div className="data">
-                            <InputGroup id="account-description" inputType="text" labelText="Descrição" inputValue={updateAccountDescription} onChangeFunction={event => { setUpdateAccountDescription(event.target.value) }}/>
-                            <InputGroup id="account-price" inputType="number" labelText="Preço:" inputValue={updateAccountPrice} onChangeFunction={event => { setUpdateAccountPrice(event.target.value) }}/>
-                            <InputGroup id="account-date" inputType="date" labelText="Data:" inputValue={updateAccountDate} onChangeFunction={event => { setUpdateAccountDate(event.target.value) }}/>
-                            <div className="account-type-select">
-                                <div className="input-container">
-                                    <i className="material-icons negative">money_off</i>
-                                    <input className="account-type-input" name="account-type" type="radio" value={updateAccountType} onClick={() => { setUpdateAccountType(false) }} 
-                                    checked={!updateAccountType}/>
-                                </div>
-                                
-                                <div className="input-container">
-                                    <i className="material-icons positive">attach_money</i>
-                                    <input className="account-type-input" name="account-type" type="radio" value={updateAccountType} onClick={() => { setUpdateAccountType(true) }} checked={updateAccountType}/>
-                                </div>
+            <div className="account-update-modal-content">         
+                <form>
+                    <div className="data">
+                        <InputGroup id="account-description" inputType="text" labelText="Descrição" inputValue={updateAccountDescription} onChangeFunction={event => { setUpdateAccountDescription(event.target.value) }}/>
+                        <InputGroup id="account-price" inputType="number" labelText="Preço:" inputValue={updateAccountPrice} onChangeFunction={event => { setUpdateAccountPrice(event.target.value) }}/>
+                        <InputGroup id="account-date" inputType="date" labelText="Data:" inputValue={updateAccountDate} onChangeFunction={event => { setUpdateAccountDate(event.target.value) }}/>
+                        <div className="account-status-select">
+                            <select onChange={event => setStatus(event.target.value)}>
+                                <option  value="pending" selected={!updateAccountStatus === "finish" ? true : false}>Pendente</option>
+                                <option value="finish" selected={updateAccountStatus === "finish" ? true : false}>Finalizado</option>
+                            </select>
+                        </div>
+                        <div className="account-type-select">
+                            <div className="input-container">
+                                <i className="material-icons negative">money_off</i>
+                                <input className="account-type-input" name="account-type" type="radio" value={updateAccountType} onClick={() => { setUpdateAccountType(false) }} 
+                                checked={!updateAccountType}/>
+                            </div>
+                            
+                            <div className="input-container">
+                                <i className="material-icons positive">attach_money</i>
+                                <input className="account-type-input" name="account-type" type="radio" value={updateAccountType} onClick={() => { setUpdateAccountType(true) }} checked={updateAccountType}/>
                             </div>
                         </div>
-                        <div className="submit-container">
-                            <button onClick={onUpdateAccount}>
-                                <i className="material-icons">add</i>
-                                <p>Atualizar conta</p>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div className="submit-container">
+                        <button onClick={onUpdateAccount}>
+                            <i className="material-icons">add</i>
+                            <p>Atualizar conta</p>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     );

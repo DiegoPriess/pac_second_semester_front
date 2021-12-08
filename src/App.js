@@ -28,7 +28,6 @@ function App() {
 
           <Route exact path='/menu'>
             <div className="content">
-              {/* <AccountUpdateModal id="1"/> */}
               <Header />
               <div className="body">
                 <NavBar />
