@@ -68,7 +68,10 @@ const AccountUpdateModal = (props) => {
 
     return (
         <div className="account-update-modal">
-            <div className="account-update-modal-content">         
+            <div className="account-update-modal-content">   
+                <div className="closeModal">
+                    <i onClick={() => {window.location.pathname = PATH}} className="close-icon material-icons negative">cancel</i>  
+                </div>      
                 <form>
                     <div className="data">
                         <InputGroup id="account-description" inputType="text" labelText="Descrição:" inputValue={updateAccountDescription} onChangeFunction={event => { setUpdateAccountDescription(event.target.value) }}/>

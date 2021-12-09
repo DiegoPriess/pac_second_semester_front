@@ -51,7 +51,10 @@ const ProfileChangePassword = (props) => {
 
     return (
         <div className="account-update-modal">
-            <div className="account-update-modal-content">         
+            <div className="account-update-modal-content">  
+                <div className="closeModal">
+                    <i onClick={() => {window.location.pathname = PATH}} className="close-icon material-icons negative">cancel</i>  
+                </div>
                 <form>
                     <div className="data">
                         <InputGroup id="current-password" inputType="password" labelText="Senha Atual:" inputValue={currentPassword} onChangeFunction={event => { setCurrentPassword(event.target.value) }}/>

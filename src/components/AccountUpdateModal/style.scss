@@ -25,7 +25,7 @@
             justify-content: space-around;
             text-align: center;
             width: 100%;
-            padding: 10%;
+            padding: 5%;
     
             .data{
                 display: flex;
@@ -119,4 +119,18 @@
              }
         }
     }
+
+    .closeModal{
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+
+            .close-icon{
+                cursor: pointer;
+                margin: -20px -20px 0 0;
+                font-size: 4em;
+                background-color: #f5f5f5;
+                border-radius: 150px;
+            }
+        }
 }
