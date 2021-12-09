@@ -14,10 +14,10 @@ const MonthlySummary = (props) => {
 
     useEffect(() => {
         api.get(`account/monthlySummary/${localStorage.getItem("email")}/${localStorage.getItem("password")}`).then((response) => {
-            setPositiveAccountsAmount(response.data.result.positiveAccountsAmount);
-            setNegativeAccountsAmount(response.data.result.negativeAccountsAmount)
-            setPositiveAccountsPriceAmount(response.data.result.positiveAccountsPriceAmount);
-            setNegativeAccountsPriceAmount(response.data.result.negativeAccountsPriceAmount)
+            setPositiveAccountsAmount(response?.data?.result?.positiveAccountsAmount);
+            setNegativeAccountsAmount(response?.data?.result?.negativeAccountsAmount)
+            setPositiveAccountsPriceAmount(response?.data?.result?.positiveAccountsPriceAmount);
+            setNegativeAccountsPriceAmount(response?.data?.result?.negativeAccountsPriceAmount)
         })
     }, [searchText]);
 

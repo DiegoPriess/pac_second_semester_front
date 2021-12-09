@@ -35,6 +35,7 @@ const ProfileChangePassword = (props) => {
        
             api.post(`user/changePassword`, data).then((response) => {
                 if(response.data.result.affectedRows > 0){
+                    localStorage.setItem("password", newPassword);
                     ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Senha alterada com sucesso." type="positive" />, document.getElementById('root'));
                 }else{
                     ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Erro ao alterar senha." type="negative" /> , document.getElementById('root'));
