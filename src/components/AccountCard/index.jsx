@@ -25,7 +25,7 @@ const AccountCard = (props) => {
     }
 
     const deleteAccount = () => {
-        api.get(`account/delete/${props.id}`).then((response) => {
+        api.get(`account/delete/${props.id}/${localStorage.getItem("email")}/${localStorage.getItem("password")}`).then((response) => {
             if(response.status === 200){
                 ReactDOM.render(<CustomAlert urlPath={PATH} labelText="Conta excluída com sucesso." type="positive" />, document.getElementById('root'));
             }else{
