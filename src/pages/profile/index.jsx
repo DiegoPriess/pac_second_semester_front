@@ -1,6 +1,9 @@
 import React from 'react';
 import './style.scss';
 import InputGroup from '../../components/InputGroup';
+import Button from '../../components/Button';
+import ProfileChangePassword from '../../components/ProfileChangePassword';
+import ReactDOM from 'react-dom';
 
 const Profile = () => {
     return (
@@ -17,6 +20,7 @@ const Profile = () => {
                 <div className="profile-data">
                     <InputGroup readOnly={true} id="profile-user" icon="account_circle" labelText="Usuário" inputType="text" inputValue={localStorage.getItem("name")}/>
                     <InputGroup readOnly={true} id="profile-email" icon="email" labelText="E-mail" inputType="email" inputValue={localStorage.getItem("email")}/>
+                    <Button onClickFunction={() => {ReactDOM.render(<ProfileChangePassword />, document.getElementById('root'));}} customClass="change-password-button" textButton="Alterar senha" />
                 </div>
             
             </div>

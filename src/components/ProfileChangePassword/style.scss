@@ -1,0 +1,109 @@
+.account-update-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+
+    .account-update-modal-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 70%;
+        height: 70%;
+        background: #f5f5f5;
+        border-radius: 10px;
+
+        form{
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            width: 100%;
+            padding: 10%;
+    
+            .data{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 50%;
+                padding: 0 5%;
+    
+                .input-container{
+                    display: flex;
+                    align-items: center;
+                    height: 40px;
+        
+                    i{
+                        margin-right: 10px;
+                    }
+        
+                    .account-type-input{
+                    
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        
+                        border-radius: 5px;
+                        width: 20px;
+                        height: 20px;
+                        border: 2px solid #999;
+                    
+                        &:checked {
+                            border-color: #9840e6;
+                            border-radius: 0;
+                            border-top: none;
+                            border-left: none;
+                            margin: 0 5px;
+                            width: 10px;
+                            transform: rotate(40deg);
+                        }
+                    }
+        
+                    .account-type-input{
+                        transition: 0.25s all linear;
+                    }
+                } 
+            }
+            
+            .submit-container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 60%;
+    
+                button{
+                    all: unset;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    border-radius: 10px;
+        
+                    font-size: 20px;
+                    color: #9840e6;
+                    padding: 10px;
+        
+                    i{
+                        font-size: 40px;
+                    }
+        
+                    &:hover{
+                        background-color: #9840e6;
+                        color: #FFFFFF;
+                        
+                    }
+                }
+        
+                button{
+                    transition: 0.3s;
+                }
+            }
+        }
+    }
+}

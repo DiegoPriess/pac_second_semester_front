@@ -71,7 +71,7 @@ const AccountUpdateModal = (props) => {
             <div className="account-update-modal-content">         
                 <form>
                     <div className="data">
-                        <InputGroup id="account-description" inputType="text" labelText="Descrição" inputValue={updateAccountDescription} onChangeFunction={event => { setUpdateAccountDescription(event.target.value) }}/>
+                        <InputGroup id="account-description" inputType="text" labelText="Descrição:" inputValue={updateAccountDescription} onChangeFunction={event => { setUpdateAccountDescription(event.target.value) }}/>
                         <InputGroup id="account-price" inputType="number" labelText="Preço:" inputValue={updateAccountPrice} onChangeFunction={event => { setUpdateAccountPrice(event.target.value) }}/>
                         <InputGroup id="account-date" inputType="date" labelText="Data:" inputValue={updateAccountDate} onChangeFunction={event => { setUpdateAccountDate(event.target.value) }}/>
                         <div className="account-status-select">
