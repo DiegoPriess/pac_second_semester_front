@@ -7,9 +7,8 @@ import Header from './components/Header';
 import NextCard from './components/NextCard';
 import Accounts from './components/Accounts';
 import Statistics from './pages/statistics';
-import Profile from './pages/profile';
+import Profile from './pages/Profile';
 import CreateAccounts from './pages/CreateAccounts';
-import AccountUpdateModal from './components/AccountUpdateModal';
 import Search from './pages/Search';
 import MonthlySummary from './pages/MonthlySummary';
 
