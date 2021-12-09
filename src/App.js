@@ -11,6 +11,7 @@ import Profile from './pages/profile';
 import CreateAccounts from './pages/CreateAccounts';
 import AccountUpdateModal from './components/AccountUpdateModal';
 import Search from './pages/Search';
+import MonthlySummary from './pages/MonthlySummary';
 
 function App() {
   
@@ -94,6 +95,16 @@ function App() {
               <Header />
               <div className="body">
                 <Search/>
+              </div>
+            </div>
+          </Route>
+
+          <Route exact path='/monthlySummary'>
+            <div className="content">
+              <Header />
+              <div className="body">
+                <NavBar />
+                <MonthlySummary />
               </div>
             </div>
           </Route>

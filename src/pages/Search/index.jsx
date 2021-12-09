@@ -6,7 +6,7 @@ import { formateDate } from '../../utils';
 import './style.scss';
 
 
-const Search = (props) => {
+const Search = () => {
 
     const [accountList, setAccountList] = useState([]);
     const { searchText } = useParams();

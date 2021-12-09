@@ -1,0 +1,39 @@
+.monthlySummary-container{
+    display: flex;
+    flex-direction: column;
+    height: 69vh;
+    width: 73.5%;
+    border-radius: 10px;
+    background: #ffffff;
+    overflow-y: auto;
+    box-shadow: 0 0 4px #c9c9c9;
+    color: #696969;
+
+    
+    .monthlySummary-content{
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        height: 100%;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 50%;
+            padding: 0 5%;
+
+            .data-group{
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: row;
+                font-size: 1.4em;
+                width: 100%;
+                
+                label{
+                    padding-right: 1.5em;
+                }
+            }
+        }
+    }
+}
