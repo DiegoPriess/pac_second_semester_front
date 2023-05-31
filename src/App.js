@@ -7,10 +7,10 @@ import Header from './components/Header';
 import NextCard from './components/NextCard';
 import Accounts from './components/Accounts';
 import Statistics from './pages/statistics';
-import Profile from './pages/Profile';
 import CreateAccounts from './pages/CreateAccounts';
 import Search from './pages/Search';
 import MonthlySummary from './pages/MonthlySummary';
+import ProfileThumbnail from './components/ProfileThumbnail';
 
 function App() {
   
@@ -84,7 +84,7 @@ function App() {
             <div className="content">
               <Header />
               <div className="body">
-                <Profile />
+                <ProfileThumbnail></ProfileThumbnail>
               </div>
             </div>   
           </Route>
